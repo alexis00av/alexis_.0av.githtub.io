@@ -1,154 +1,299 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impulsa tu Negocio con IA</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-    }
-    header img {
-      max-width: 280px;
-      margin-bottom: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      font-size: 2.5em;
-      margin: 10px 0;
-    }
-    header p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-    .btn {
-      background: #ff7b00;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #e06a00;
-    }
-    section {
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      color: #4e73df;
-      margin-bottom: 20px;
-    }
-    .price {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .price p {
-      font-size: 1.3em;
-    }
-    .price .old {
-      text-decoration: line-through;
-      color: red;
-      font-size: 1.2em;
-    }
-    .price .new {
-      font-size: 2em;
-      font-weight: bold;
-      color: #1cc88a;
-    }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .testimonial {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #4e73df;
-      color: white;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle2, Rocket, Timer, Brain, Sparkles, Shield, BookOpenText, DollarSign, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
-<header>
-  <img src="focus.png" alt="Ebook Impulsa tu Negocio con IA">
-  <h1>Impulsa tu Negocio con IA</h1>
-  <p>Descubre cómo la inteligencia artificial puede llevar tu emprendimiento al siguiente nivel</p>
-  <a class="btn" href="https://pay.hotmart.com/D101547238U" target="_blank">¡Quiero mi copia ahora!</a>
-</header>
+// 🔗 Enlace de pago Hotmart
+const HOTMART_URL = "https://pay.hotmart.com/D101547238U";
 
-<section>
-  <h2>¿Estás cansado de luchar con tu negocio sin resultados?</h2>
-  <p>Muchos emprendedores pierden tiempo, dinero y energía probando estrategias que no funcionan. La falta de enfoque y el desconocimiento de herramientas modernas puede estar frenando tu crecimiento.</p>
-</section>
+// Pequeño helper de animación
+const FadeIn = ({ children, delay = 0 }) => (
+  <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay }} viewport={{ once: true }}>
+    {children}
+  </motion.div>
+);
 
-<section>
-  <h2>La solución está aquí</h2>
-  <p>Este eBook te mostrará paso a paso cómo utilizar la Inteligencia Artificial para:</p>
-  <ul>
-    <li>Ahorrar tiempo en tareas repetitivas.</li>
-    <li>Optimizar tu marketing digital.</li>
-    <li>Mejorar la comunicación con tus clientes.</li>
-    <li>Tomar decisiones basadas en datos reales.</li>
-    <li>Impulsar tus ventas sin aumentar tus gastos.</li>
-  </ul>
-</section>
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-slate-950 text-white">
+      {/* Background gradient + glow */}
+      <div className="pointer-events-none fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-black" />
+        <div className="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
+      </div>
 
-<section class="price">
-  <h2>Oferta Especial por Tiempo Limitado</h2>
-  <p class="old">$17.99 USD</p>
-  <p class="new">$7.99 USD</p>
-  <a class="btn" href="https://pay.hotmart.com/D101547238U" target="_blank">Comprar Ahora</a>
-</section>
+      {/* NAV */}
+      <header className="sticky top-0 z-40 border-b border-white/10 backdrop-blur supports-[backdrop-filter]:bg-slate-950/50">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-6 w-6 text-cyan-400" />
+            <span className="text-lg font-semibold tracking-tight">Negocios Inteligentes</span>
+          </div>
+          <div className="hidden gap-4 md:flex">
+            <a href="#benefits" className="text-sm text-slate-300 hover:text-white">Beneficios</a>
+            <a href="#contenido" className="text-sm text-slate-300 hover:text-white">Contenido</a>
+            <a href="#testimonios" className="text-sm text-slate-300 hover:text-white">Testimonios</a>
+            <a href="#faq" className="text-sm text-slate-300 hover:text-white">FAQ</a>
+          </div>
+          <Button asChild className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold">
+            <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+          </Button>
+        </div>
+      </header>
 
-<section>
-  <h2>Lo que dicen los emprendedores</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <p>"Gracias a este libro, descubrí cómo usar IA para automatizar mi negocio. He duplicado mis ventas en solo 2 meses."</p>
-      <strong>- Mariana, dueña de tienda online</strong>
+      {/* HERO */}
+      <section className="relative">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-14 md:grid-cols-2 md:py-24">
+          <FadeIn>
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              Multiplica tus ventas con <span className="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">Inteligencia Artificial</span>
+            </h1>
+            <p className="mt-4 text-slate-300">
+              Aprende a usar <strong>ChatGPT, Gemini y Grok</strong> para atraer clientes, automatizar tareas y escalar tu emprendimiento con el libro
+              <span className="font-semibold"> “Negocios Inteligentes: Cómo usar la IA para hacer crecer tu emprendimiento”.</span>
+            </p>
+            <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row">
+              <Button asChild size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold">
+                <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  Comprar ahora <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+              <a href="#benefits" className="text-sm underline underline-offset-4 text-slate-300 hover:text-white">Ver cómo te ayuda</a>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-4 text-xs text-slate-400">
+              <div className="rounded-full border border-white/10 px-3 py-1">Formato: PDF / eBook</div>
+              <div className="rounded-full border border-white/10 px-3 py-1">Acceso inmediato</div>
+              <div className="rounded-full border border-white/10 px-3 py-1">Actualizado 2025</div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <Card className="border-white/10 bg-white/5 backdrop-blur">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-white">
+                  <Rocket className="h-5 w-5 text-cyan-400" /> Vista previa del eBook
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-hidden rounded-xl ring-1 ring-white/10">
+                  <img
+                    src="https://images.unsplash.com/photo-1551281044-8d8d0d8c8dfd?q=80&w=1400&auto=format&fit=crop"
+                    alt="Vista previa del libro Negocios Inteligentes"
+                    className="h-64 w-full object-cover"
+                  />
+                </div>
+                <p className="mt-3 text-sm text-slate-300">
+                  Plantillas, prompts y casos reales para aplicar la IA en marketing, ventas y operación.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* BENEFICIOS */}
+      <section id="benefits" className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <FadeIn>
+            <h2 className="text-2xl font-bold sm:text-3xl">Lo que obtendrás</h2>
+            <p className="mt-2 max-w-2xl text-slate-300">Implementa IA desde el primer día: menos esfuerzo, más resultados. Ideal para emprendedores y dueños de negocio.</p>
+          </FadeIn>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[{
+              title: "Prompts listos para vender",
+              desc: "Copys, guiones, emails y respuestas que convierten en Facebook, Instagram y WhatsApp.",
+              icon: <DollarSign className="h-5 w-5 text-cyan-400" />,
+            },{
+              title: "Automatiza tareas repetitivas",
+              desc: "Chatbots, agendas y reportes con IA para liberar horas a la semana.",
+              icon: <Timer className="h-5 w-5 text-cyan-400" />,
+            },{
+              title: "Decisiones con datos",
+              desc: "Usa Gemini para analizar ventas y detectar oportunidades reales.",
+              icon: <Brain className="h-5 w-5 text-cyan-400" />,
+            },{
+              title: "Guías paso a paso",
+              desc: "Flujos, checklists y casos reales para implementar sin complicarte.",
+              icon: <BookOpenText className="h-5 w-5 text-cyan-400" />,
+            },{
+              title: "Estrategia probada",
+              desc: "Frameworks de marketing y ventas adaptados a pequeños negocios.",
+              icon: <Shield className="h-5 w-5 text-cyan-400" />,
+            },{
+              title: "Actualizaciones 2025",
+              desc: "Incluye referencias a ChatGPT, Gemini y Grok con prácticas vigentes.",
+              icon: <Sparkles className="h-5 w-5 text-cyan-400" />,
+            }].map((f, i) => (
+              <FadeIn key={i} delay={0.05 * i}>
+                <Card className="h-full border-white/10 bg-white/5">
+                  <CardHeader className="flex flex-row items-center gap-2">
+                    {f.icon}
+                    <CardTitle className="text-white text-lg">{f.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300 text-sm">{f.desc}</p>
+                  </CardContent>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
+            <Button asChild size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold">
+              <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                Quiero empezar ahora <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+            <p className="text-slate-400 text-sm">Acceso inmediato. 100% digital. Actualizable.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENIDO */}
+      <section id="contenido" className="border-t border-white/10 bg-white/5">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <FadeIn>
+            <h2 className="text-2xl font-bold sm:text-3xl">Contenido del eBook</h2>
+            <p className="mt-2 max-w-2xl text-slate-300">Capítulos prácticos con ejercicios, plantillas y retos accionables.</p>
+          </FadeIn>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {[
+              "La nueva era de los negocios con IA",
+              "Ventas con IA: copy, objeciones y cierres",
+              "Marketing con IA: redes y contenidos virales",
+              "Atención al cliente 24/7 con chatbots",
+              "Publicidad rentable con IA",
+              "Automatización y expansión a nuevos mercados",
+              "Fidelización y experiencias personalizadas",
+            ].map((cap, idx) => (
+              <FadeIn key={cap} delay={0.05 * idx}>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-5 w-5 flex-none text-cyan-400" />
+                  <p className="text-slate-200">{cap}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
+      <section id="testimonios" className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <FadeIn>
+            <h2 className="text-2xl font-bold sm:text-3xl">Resultados de lectores</h2>
+            <p className="mt-2 max-w-2xl text-slate-300">Historias reales de emprendedores que aplicaron la IA a su negocio.</p>
+          </FadeIn>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                quote: "En una semana lancé 10 anuncios con IA y tripliqué leads.",
+                name: "María, tienda online",
+              },
+              {
+                quote: "Automatizamos respuestas en WhatsApp y cerramos ventas fuera de horario.",
+                name: "Luis, cafetería",
+              },
+              {
+                quote: "Con Gemini detecté productos estrella y mejoré márgenes.",
+                name: "Andrea, retail",
+              },
+            ].map((t, i) => (
+              <FadeIn key={i} delay={0.05 * i}>
+                <Card className="h-full border-white/10 bg-white/5">
+                  <CardContent className="pt-6 text-slate-200">“{t.quote}”
+                    <div className="mt-3 text-sm text-slate-400">{t.name}</div>
+                  </CardContent>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRECIO / CTA */}
+      <section className="border-t border-white/10 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <FadeIn>
+            <Card className="mx-auto max-w-3xl border-cyan-400/20 bg-slate-900/60 backdrop-blur">
+              <CardHeader>
+                <CardTitle className="text-center text-2xl font-bold">Consigue tu copia hoy</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid items-center gap-6 md:grid-cols-[1fr_auto]">
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-5 w-5 text-cyan-400" /> eBook + plantillas y prompts</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-5 w-5 text-cyan-400" /> Acceso inmediato y actualizaciones</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-5 w-5 text-cyan-400" /> Soporte básico por email</li>
+                  </ul>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+                    <div className="text-sm uppercase tracking-wide text-slate-400">Precio lanzamiento</div>
+                    <div className="mt-1 text-4xl font-extrabold">$<span className="tabular-nums">27</span></div>
+                    <Button asChild size="lg" className="mt-4 w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold">
+                      <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                        Comprar ahora <ArrowRight className="h-4 w-4" />
+                      </a>
+                    </Button>
+                    <div className="mt-3 text-xs text-slate-400">Pago seguro en Hotmart • Entrega inmediata</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <FadeIn>
+            <h2 className="text-2xl font-bold sm:text-3xl">Preguntas frecuentes</h2>
+          </FadeIn>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                q: "¿Cómo recibo el eBook?",
+                a: "Al completar el pago en Hotmart, obtienes acceso inmediato al archivo PDF y a los recursos incluidos.",
+              },
+              {
+                q: "¿Necesito conocimientos previos de IA?",
+                a: "No. El libro explica paso a paso con ejemplos y plantillas para implementar desde cero.",
+              },
+              {
+                q: "¿Sirve para cualquier tipo de negocio?",
+                a: "Sí. Las estrategias cubren productos físicos, servicios y tiendas online con adaptaciones por rubro.",
+              },
+              {
+                q: "¿Actualizan el contenido?",
+                a: "Sí, recibirás avisos cuando haya nuevas versiones con prácticas vigentes en 2025.",
+              },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={0.04 * i}>
+                <Card className="border-white/10 bg-white/5">
+                  <CardHeader>
+                    <CardTitle className="text-white">{item.q}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-slate-300">{item.a}</CardContent>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-slate-400 md:flex-row">
+          <p className="text-sm">© {new Date().getFullYear()} Negocios Inteligentes. Todos los derechos reservados.</p>
+          <div className="flex items-center gap-4">
+            <a href="#contenido" className="text-sm hover:text-white">Contenido</a>
+            <a href="#faq" className="text-sm hover:text-white">FAQ</a>
+            <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white">Comprar</a>
+          </div>
+        </div>
+      </footer>
     </div>
-    <div class="testimonial">
-      <p>"Antes me sentía perdido, ahora tengo un plan claro. Este libro me dio claridad y resultados."</p>
-      <strong>- José, emprendedor de servicios</strong>
-    </div>
-    <div class="testimonial">
-      <p>"La mejor inversión que he hecho. Información clara, práctica y que realmente funciona."</p>
-      <strong>- Sofía, coach de negocios</strong>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Garantía de Valor</h2>
-  <p>Si aplicas las estrategias de este eBook, tu negocio tendrá una transformación real. No es teoría complicada, son pasos prácticos para emprendedores que quieren resultados rápidos.</p>
-</section>
-
-<footer>
-  <p>© 2025 Impulsa tu Negocio con IA - Todos los derechos reservados</p>
-</footer>
-
-</body>
-</html>
+  );
+}
