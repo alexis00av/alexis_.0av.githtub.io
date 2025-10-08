@@ -362,6 +362,21 @@
             opacity: 1;
         }
         
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--f1-red), #ff4d4d);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
         .product-image {
             height: 260px;
             display: flex;
@@ -399,6 +414,23 @@
             font-size: 1.1rem;
             min-height: 2.8rem;
             line-height: 1.3;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .product-stars {
+            color: var(--f1-yellow);
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+        
+        .product-reviews {
+            color: var(--f1-gray);
+            font-size: 0.8rem;
         }
         
         .product-price {
@@ -1229,13 +1261,24 @@
         <div class="container">
             <h2 class="section-title">Nuestro Catálogo</h2>
             <div class="products-grid">
-                <!-- Producto 1 -->
+                <!-- Producto 1 - Más Popular -->
                 <div class="product-card">
+                    <div class="product-badge">Más Popular</div>
                     <div class="product-image">
                         <img src="https://m.media-amazon.com/images/I/51WVRGOMvoL._UY1000_.jpg" alt="Camisa Red Bull Racing">
                     </div>
                     <div class="product-info">
                         <div class="product-title">Camisa Red Bull Racing 2024</div>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="product-reviews">(128 reseñas)</div>
+                        </div>
                         <div class="product-price">$49.99</div>
                         <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
@@ -1248,6 +1291,16 @@
                     </div>
                     <div class="product-info">
                         <div class="product-title">Camisa Ferrari Scuderia</div>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="product-reviews">(96 reseñas)</div>
+                        </div>
                         <div class="product-price">$54.99</div>
                         <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
@@ -1260,6 +1313,16 @@
                     </div>
                     <div class="product-info">
                         <div class="product-title">Camisa Mercedes-AMG Petronas</div>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="product-reviews">(142 reseñas)</div>
+                        </div>
                         <div class="product-price">$52.99</div>
                         <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
@@ -1272,6 +1335,16 @@
                     </div>
                     <div class="product-info">
                         <div class="product-title">Camisa McLaren F1 Team</div>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="product-reviews">(87 reseñas)</div>
+                        </div>
                         <div class="product-price">$47.99</div>
                         <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
@@ -1387,7 +1460,7 @@
                     <div class="founder-avatar">J</div>
                     <div class="founder-name">Jaquelline Esthefany Cruz Molina</div>
                     <div class="founder-role">Directora Financiera</div>
-                    <p>Experta en finanzas y administración, Jackeline gestiona los recursos y planificación económica de la empresa.</p>
+                    <p>Experta en finanzas y administración, Jaquelline gestiona los recursos y planificación económica de la empresa.</p>
                 </div>
             </div>
         </div>
@@ -1402,7 +1475,7 @@
                     <h3>Visita Nuestra Tienda</h3>
                     <p>Estamos ubicados en la Universidad Gerardo Barrios, con fácil acceso y amplio estacionamiento.</p>
                     <p><strong>Dirección:</strong> Universidad Gerardo Barrios, Ciudad</p>
-                    <p><strong>Horario:</strong> Miércoles a Jueves: 8:00 AM - 5:00 PM</p>
+                    <p><strong>Horario:</strong> Miércoles de 8:50 AM a 10:30 AM y Jueves de 7:00 AM a 8:30 AM </p>
                     <p><strong>Teléfono:</strong> 503 7472 6705</p>
                     <p><strong>Email:</strong> formula91@gmail.com</p>
                 </div>
@@ -1677,4 +1750,3 @@
     </script>
 </body>
 </html>
-
