@@ -29,6 +29,7 @@
             overflow-x: hidden;
         }
         
+        /* Header y Navegación */
         header {
             background-color: var(--f1-dark);
             color: var(--f1-white);
@@ -137,6 +138,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
+        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -146,6 +148,7 @@
             cursor: pointer;
         }
         
+        /* Hero Section with Parallax */
         .hero {
             background: linear-gradient(rgba(21, 21, 30, 0.8), rgba(21, 21, 30, 0.8)), 
                         url('https://static.vecteezy.com/system/resources/previews/038/498/248/non_2x/ai-generated-car-is-driving-on-an-empty-race-track-at-sunset-free-photo.jpg');
@@ -169,6 +172,7 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
@@ -194,6 +198,7 @@
             box-shadow: 0 0 15px var(--f1-red);
         }
         
+        /* Fade-in Animations for Sections */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -206,10 +211,17 @@
         }
         
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
+        /* Secciones comunes */
         section {
             padding: 4rem 0;
         }
@@ -230,6 +242,7 @@
             margin: 10px auto;
         }
         
+        /* Catálogo */
         .catalog {
             background-color: var(--f1-white);
         }
@@ -246,6 +259,7 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
         
         .product-card:hover {
@@ -253,8 +267,27 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(225, 6, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover::after {
+            opacity: 1;
+        }
+        
         .product-image {
             height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
         
@@ -290,31 +323,278 @@
             color: var(--f1-white);
             width: 100%;
             padding: 0.7rem;
-            border: none;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: block;
             border-radius: 4px;
+            cursor: pointer;
+            border: none;
             font-size: 1rem;
             font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
         }
         
         .btn-buy:hover {
             background-color: var(--f1-red);
             transform: scale(1.05);
         }
-
+        
+        /* Quiénes Somos */
+        .about {
+            background-color: var(--f1-light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: var(--f1-red);
+        }
+        
+        .about-image {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Ubicación */
+        .location {
+            background-color: var(--f1-white);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .location-info h3 {
+            margin-bottom: 1rem;
+            color: var(--f1-red);
+        }
+        
+        .location-info p {
+            margin-bottom: 1rem;
+        }
+        
+        .location-map {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Formulario de Registro with Animations */
+        .register {
+            background-color: var(--f1-light);
+            padding: 4rem 0;
+        }
+        
+        .register-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--f1-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            position: absolute;
+            top: 0.8rem;
+            left: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: #aaa;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--f1-red);
+        }
+        
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            left: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--f1-red);
+            background: var(--f1-white);
+            padding: 0 0.2rem;
+        }
+        
+        .btn-submit {
+            background-color: var(--f1-red);
+            color: var(--f1-white);
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .btn-submit.loading {
+            pointer-events: none;
+        }
+        
+        .btn-submit.loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: loading 1s infinite;
+        }
+        
+        @keyframes loading {
+            100% { left: 100%; }
+        }
+        
+        /* Footer with Social Tooltips */
         footer {
             background-color: var(--f1-dark);
             color: var(--f1-white);
             padding: 3rem 0 1rem;
         }
-
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--f1-red);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: var(--f1-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--f1-red);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--f1-gray);
+            border-radius: 50%;
+            color: var(--f1-white);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--f1-red);
+            transform: scale(1.1);
+        }
+        
+        .social-icon .tooltip {
+            position: absolute;
+            top: -40px;
+            background: var(--f1-white);
+            color: var(--f1-dark);
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .social-icon:hover .tooltip {
+            opacity: 1;
+            top: -35px;
+        }
+        
+        .social-icon .tooltip::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 8px;
+            height: 8px;
+            background: var(--f1-white);
+        }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid var(--f1-gray);
         }
-
+        
+        /* WhatsApp Float Button */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -334,41 +614,191 @@
             animation: pulse-green 2s infinite;
             text-decoration: none;
         }
-
+        
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
-
+        
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+        
+        /* Enhanced Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--f1-dark);
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 2rem;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .auth-buttons {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+                min-height: 60vh;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .btn-hero {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .about-content, .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .register-form {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-section {
+                transition: none;
+            }
+            .product-card:hover {
+                transform: none;
+            }
+            * {
+                transition-duration: 0s !important;
+                animation-duration: 0s !important;
+            }
+        }
     </style>
 </head>
 <body>
-
+    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <span class="logo-icon">🏎️</span>
-                <h1>F1 Store</h1>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🏎️</span>
+                    <h1>F1 Store</h1>
+                </div>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <button class="mobile-close-btn" style="display: none; background: none; border: none; color: white; font-size: 1.5rem; position: absolute; top: 1rem; right: 1rem;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-login">Iniciar Sesión</button>
+                    <button class="btn btn-register">Registrarse</button>
+                </div>
             </div>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero fade-in-section" id="inicio">
-        <div class="container hero-content">
-            <h2>Camisas Oficiales de Fórmula 1</h2>
-            <p>Viste con el estilo y la pasión de la máxima categoría del automovilismo.</p>
-            <a href="#catalogo" class="btn btn-hero">Ver Catálogo</a>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Camisas Oficiales de Fórmula 1</h2>
+                <p>Viste con el estilo y la pasión de la máxima categoría del automovilismo. Camisas de alta calidad de todos los equipos y pilotos.</p>
+                <a href="#catalogo" class="btn btn-hero">Ver Catálogo</a>
+            </div>
         </div>
     </section>
 
+    <!-- Catálogo -->
     <section class="catalog fade-in-section" id="catalogo">
         <div class="container">
             <h2 class="section-title">Nuestro Catálogo</h2>
             <div class="products-grid">
+                <!-- Producto 1 -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://m.media-amazon.com/images/I/51WVRGOMvoL._UY1000_.jpg" alt="Camisa Red Bull Racing">
@@ -379,7 +809,8 @@
                         <button class="btn btn-buy" data-product="Camisa Red Bull Racing 2024">Comprar Ahora</button>
                     </div>
                 </div>
-
+                
+                <!-- Producto 2 -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="https://www.cmcmotorsports.com/cdn/shop/products/701223379001_PP_1_FERRARI_WHITE-hi-res_22848f2e-8150-421b-a506-c24f541ab9cf.jpg?v=1675874032" alt="Camisa Ferrari">
@@ -390,7 +821,8 @@
                         <button class="btn btn-buy" data-product="Camisa Ferrari Scuderia">Comprar Ahora</button>
                     </div>
                 </div>
-
+                
+                <!-- Producto 3 -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="http://shop-us.mercedesamgf1.com/cdn/shop/files/JW5363_1_APPAREL_Photography_FrontCenterView_grey030225030225.jpg?v=1738589001&width=3200" alt="Camisa Mercedes-AMG">
@@ -401,7 +833,8 @@
                         <button class="btn btn-buy" data-product="Camisa Mercedes-AMG Petronas">Comprar Ahora</button>
                     </div>
                 </div>
-
+                
+                <!-- Producto 4 -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="http://us.mclarenstore.com/cdn/shop/files/TM9913-088-AUTUMNGLORY-PHANTOM-01_970X1219_c10fc9e9-e3f7-44f3-80cc-fbe65d692fdc.jpg?v=1739288367" alt="Camisa McLaren">
@@ -416,18 +849,233 @@
         </div>
     </section>
 
+    <!-- Quiénes Somos -->
+    <section class="about fade-in-section" id="quienes-somos">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Pasados por la F1</h3>
+                    <p>Somos apasionados de la Fórmula 1 y entendemos lo que significa vestir los colores de tu equipo favorito. Desde 2010, nos dedicamos a ofrecer las mejores camisas oficiales y de alta calidad para los aficionados al deporte motor.</p>
+                    <p>Nuestra misión es acercar la emoción de la F1 a través de productos auténticos que representen la esencia de cada escudería y piloto.</p>
+                    <p>Trabajamos directamente con proveedores autorizados para garantizar la autenticidad de todos nuestros productos.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://f1store4.formula1.com/content/ws/all/5e270eab-f2eb-47e3-810d-dde2742fb47c__800X1080.png" alt="Nuestro equipo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="location fade-in-section" id="ubicacion">
+        <div class="container">
+            <h2 class="section-title">Nuestra Ubicación</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Visita Nuestra Tienda</h3>
+                    <p>Estamos ubicados en el corazón de la ciudad, con fácil acceso y amplio estacionamiento.</p>
+                    <p><strong>Dirección:</strong> Av. del Motor 123, Zona Comercial, Ciudad</p>
+                    <p><strong>Horario:</strong> Lunes a Sábado: 10:00 - 20:00</p>
+                    <p><strong>Teléfono:</strong> +1 234 567 890</p>
+                    <p><strong>Email:</strong> info@f1store.com</p>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d144.9537353153166!3d-37.81627997975175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d8a32fb4c7c4!2sMelbourne%20Grand%20Prix%20Circuit!5e0!3m2!1sen!2sau!4v1583376772607!5m2!1sen!2sau" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Registro -->
+    <section class="register fade-in-section">
+        <div class="container">
+            <h2 class="section-title">Regístrate para Ofertas Exclusivas</h2>
+            <div class="register-form">
+                <form id="registration-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder=" " required>
+                        <label for="name">Nombre Completo</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Correo Electrónico</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder=" " required>
+                        <label for="password">Contraseña</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required>
+                        <label for="confirm-password">Confirmar Contraseña</label>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="container footer-bottom">
-            <p>&copy; 2025 F1 Store. Todos los derechos reservados.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>F1 Store</h3>
+                    <p>Tu tienda oficial de camisas de Fórmula 1. Calidad y autenticidad garantizadas.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i><span class="tooltip">Facebook</span></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i><span class="tooltip">Instagram</span></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i><span class="tooltip">X (Twitter)</span></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i><span class="tooltip">YouTube</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Envíos y Devoluciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>Teléfono: +1 234 567 890</li>
+                        <li>Email: info@f1store.com</li>
+                        <li>Dirección: Av. del Motor 123</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 F1 Store. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Float Button -->
     <a href="http://wa.me/50374726705" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Activar redirección a WhatsApp con mensaje automático
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        const mobileCloseBtn = document.createElement('button');
+        
+        mobileCloseBtn.innerHTML = '<i class="fas fa-times"></i>';
+        mobileCloseBtn.style.cssText = 'background: none; border: none; color: white; font-size: 1.5rem; position: absolute; top: 1rem; right: 1rem; cursor: pointer;';
+        mobileCloseBtn.classList.add('mobile-close-btn');
+        nav.appendChild(mobileCloseBtn);
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+        
+        mobileCloseBtn.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Parallax for Hero
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const parallaxSpeed = 0.5;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = `${scrollPosition * parallaxSpeed}px`;
+        });
+
+        // Fade-in Observer
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Validación del formulario de registro con loading
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.btn-submit');
+            submitBtn.classList.add('loading');
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
+                submitBtn.classList.remove('loading');
+                return;
+            }
+            
+            // Simular envío
+            setTimeout(() => {
+                alert('¡Registro exitoso! Te hemos enviado un correo de confirmación.');
+                submitBtn.classList.remove('loading');
+                this.reset();
+            }, 1500);
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('nav a, .btn-hero').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Botones de registro e inicio de sesión
+        document.querySelector('.btn-register').addEventListener('click', function() {
+            document.querySelector('.register').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        document.querySelector('.btn-login').addEventListener('click', function() {
+            alert('Funcionalidad de inicio de sesión en desarrollo.');
+        });
+
+        // Product hover effects for mobile
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                card.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+        }
+
+        // WhatsApp buttons functionality
         document.querySelectorAll('.btn-buy').forEach(button => {
             button.addEventListener('click', function() {
                 const productName = this.getAttribute('data-product');
@@ -437,6 +1085,5 @@
             });
         });
     </script>
-
 </body>
 </html>
