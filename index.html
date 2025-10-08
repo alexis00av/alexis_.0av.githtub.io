@@ -374,6 +374,97 @@
             transform: scale(1.05);
         }
         
+        /* Sección de Reseñas */
+        .reviews {
+            background-color: var(--f1-white);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .review-card {
+            background-color: var(--f1-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--f1-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--f1-white);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .review-stars {
+            color: var(--f1-yellow);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Sección de Fundadores */
+        .founders {
+            background-color: var(--f1-light);
+        }
+        
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .founder-card {
+            background-color: var(--f1-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .founder-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .founder-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--f1-gray);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--f1-white);
+            font-size: 2.5rem;
+        }
+        
+        .founder-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--f1-dark);
+        }
+        
+        .founder-role {
+            color: var(--f1-red);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
         /* Ubicación */
         .location {
             background-color: var(--f1-white);
@@ -689,8 +780,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .products-grid, .reviews-grid, .founders-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-image {
+                height: 180px;
             }
             
             .register-form {
@@ -704,6 +799,10 @@
             .section-title {
                 font-size: 1.8rem;
             }
+            
+            .founder-card {
+                padding: 1rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -713,10 +812,6 @@
             
             .hero h2 {
                 font-size: 1.8rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
             }
             
             .product-card {
@@ -731,6 +826,10 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
+            }
+            
+            .product-image {
+                height: 150px;
             }
         }
         
@@ -771,6 +870,8 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#catalogo">Catálogo</a></li>
                         <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                        <li><a href="#reseñas">Reseñas</a></li>
+                        <li><a href="#fundadores">Fundadores</a></li>
                         <li><a href="#ubicacion">Ubicación</a></li>
                     </ul>
                 </nav>
@@ -806,7 +907,7 @@
                     <div class="product-info">
                         <div class="product-title">Camisa Red Bull Racing 2024</div>
                         <div class="product-price">$49.99</div>
-                        <button class="btn btn-buy" data-product="Camisa Red Bull Racing 2024">Comprar Ahora</button>
+                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
                 </div>
                 
@@ -818,7 +919,7 @@
                     <div class="product-info">
                         <div class="product-title">Camisa Ferrari Scuderia</div>
                         <div class="product-price">$54.99</div>
-                        <button class="btn btn-buy" data-product="Camisa Ferrari Scuderia">Comprar Ahora</button>
+                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
                 </div>
                 
@@ -830,7 +931,7 @@
                     <div class="product-info">
                         <div class="product-title">Camisa Mercedes-AMG Petronas</div>
                         <div class="product-price">$52.99</div>
-                        <button class="btn btn-buy" data-product="Camisa Mercedes-AMG Petronas">Comprar Ahora</button>
+                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
                 </div>
                 
@@ -842,7 +943,7 @@
                     <div class="product-info">
                         <div class="product-title">Camisa McLaren F1 Team</div>
                         <div class="product-price">$47.99</div>
-                        <button class="btn btn-buy" data-product="Camisa McLaren F1 Team">Comprar Ahora</button>
+                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
                     </div>
                 </div>
             </div>
@@ -867,6 +968,101 @@
         </div>
     </section>
 
+    <!-- Reseñas -->
+    <section class="reviews fade-in-section" id="reseñas">
+        <div class="container">
+            <h2 class="section-title">Reseñas de Clientes</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">M</div>
+                        <div>
+                            <h3>Miguel Ángel</h3>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Excelente calidad en las camisas. La de Ferrari es exactamente como la esperaba. El envío fue rápido y el servicio al cliente muy atento."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">C</div>
+                        <div>
+                            <h3>Carolina</h3>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Compré la camisa de Red Bull para mi esposo y le encantó. La tela es de muy buena calidad y los detalles están bien hechos. Definitivamente volveré a comprar."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">R</div>
+                        <div>
+                            <h3>Roberto</h3>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Soy coleccionista de productos de F1 y esta tienda tiene los artículos más auténticos que he encontrado. El proceso de compra fue sencillo y la comunicación excelente."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundadores -->
+    <section class="founders fade-in-section" id="fundadores">
+        <div class="container">
+            <h2 class="section-title">Nuestros Fundadores</h2>
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <div class="founder-avatar">C</div>
+                    <div class="founder-name">Christian Alexis Albayero Velasquez</div>
+                    <div class="founder-role">Fundador Principal</div>
+                    <p>Visionario y apasionado de la F1 desde niño, Christian lidera la estrategia y desarrollo de la empresa.</p>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-avatar">J</div>
+                    <div class="founder-name">Jennifer Gabriela Escobar Umamzor</div>
+                    <div class="founder-role">Directora de Marketing</div>
+                    <p>Especialista en branding y relaciones públicas, Jennifer maneja la imagen y promoción de la marca.</p>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-avatar">G</div>
+                    <div class="founder-name">Gisela Valentina Morataya Salgado</div>
+                    <div class="founder-role">Directora de Operaciones</div>
+                    <p>Con amplia experiencia en logística, Gisela asegura que cada pedido llegue a tiempo y en perfectas condiciones.</p>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-avatar">J</div>
+                    <div class="founder-name">Jackeline Esthefany Cruz Molina</div>
+                    <div class="founder-role">Directora Financiera</div>
+                    <p>Experta en finanzas y administración, Jackeline gestiona los recursos y planificación económica de la empresa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Ubicación -->
     <section class="location fade-in-section" id="ubicacion">
         <div class="container">
@@ -874,14 +1070,14 @@
             <div class="location-content">
                 <div class="location-info">
                     <h3>Visita Nuestra Tienda</h3>
-                    <p>Estamos ubicados en el corazón de la ciudad, con fácil acceso y amplio estacionamiento.</p>
-                    <p><strong>Dirección:</strong> Av. del Motor 123, Zona Comercial, Ciudad</p>
-                    <p><strong>Horario:</strong> Lunes a Sábado: 10:00 - 20:00</p>
-                    <p><strong>Teléfono:</strong> +1 234 567 890</p>
-                    <p><strong>Email:</strong> info@f1store.com</p>
+                    <p>Estamos ubicados en la Universidad Gerardo Barrios, con fácil acceso y amplio estacionamiento.</p>
+                    <p><strong>Dirección:</strong> Universidad Gerardo Barrios, Ciudad</p>
+                    <p><strong>Horario:</strong> Miércoles a Jueves: 8:00 AM - 5:00 PM</p>
+                    <p><strong>Teléfono:</strong> 503 7472 6705</p>
+                    <p><strong>Email:</strong> formula91@gmail.com</p>
                 </div>
                 <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d144.9537353153166!3d-37.81627997975175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d8a32fb4c7c4!2sMelbourne%20Grand%20Prix%20Circuit!5e0!3m2!1sen!2sau!4v1583376772607!5m2!1sen!2sau" allowfullscreen=""></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3879.223676327255!2d-88.1262329246874!3d13.48123520244805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7aa36c5b5a5a5f%3A0x5e3e1e3e1e3e1e3e!2sUniversidad%20Gerardo%20Barrios!5e0!3m2!1ses!2ssv!4v1640000000000!5m2!1ses!2ssv" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -935,6 +1131,8 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#catalogo">Catálogo</a></li>
                         <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                        <li><a href="#reseñas">Reseñas</a></li>
+                        <li><a href="#fundadores">Fundadores</a></li>
                         <li><a href="#ubicacion">Ubicación</a></li>
                     </ul>
                 </div>
@@ -950,14 +1148,15 @@
                 <div class="footer-column">
                     <h3>Contacto</h3>
                     <ul>
-                        <li>Teléfono: +1 234 567 890</li>
-                        <li>Email: info@f1store.com</li>
-                        <li>Dirección: Av. del Motor 123</li>
+                        <li>Teléfono: 503 7472 6705</li>
+                        <li>Email: formula91@gmail.com</li>
+                        <li>Dirección: Universidad Gerardo Barrios</li>
+                        <li>Horario: Miércoles a Jueves: 8:00 AM - 5:00 PM</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 F1 Store. Todos los derechos reservados.</p>
+                <p>&copy; 2025 F1 Store. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -1074,16 +1273,6 @@
                 });
             });
         }
-
-        // WhatsApp buttons functionality
-        document.querySelectorAll('.btn-buy').forEach(button => {
-            button.addEventListener('click', function() {
-                const productName = this.getAttribute('data-product');
-                const message = `Hola, estoy interesado en comprar: ${productName}`;
-                const whatsappURL = `http://wa.me/50374726705?text=${encodeURIComponent(message)}`;
-                window.open(whatsappURL, '_blank');
-            });
-        });
     </script>
 </body>
 </html>
