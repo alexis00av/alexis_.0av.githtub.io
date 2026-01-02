@@ -3,1751 +3,1044 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Store - Camisas Oficiales de Fórmula 1</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>AV Visuals | Editor Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
-            --f1-red: #e10600;
-            --f1-dark: #0f0f17;
-            --f1-gray: #38383f;
-            --f1-light: #f5f5f7;
-            --f1-white: #ffffff;
-            --f1-yellow: #ffd700;
-            --f1-blue: #0090d0;
-            --f1-green: #00d2be;
+            --bg-dark: #000000;
+            --bg-light: #1a1a1a;
+            --bg-card: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-accent: #ffffff;
+            --accent-color: #ffffff;
+            --accent-hover: #f0f0f0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --whatsapp: #25D366;
+            --email: #D44638;
+            --primary-color: #ffffff;
+            --secondary-color: #666666;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
-        
+
         body {
-            background-color: var(--f1-light);
-            color: var(--f1-dark);
+            font-family: 'Poppins', sans-serif;
+            background: #000000;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
             line-height: 1.6;
             overflow-x: hidden;
-            font-family: 'Exo 2', sans-serif;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-        
-        /* Header y Navegación Optimizados para Móviles */
-        header {
-            background-color: rgba(15, 15, 23, 0.98);
-            color: var(--f1-white);
-            padding: 0.8rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            padding: 0.5rem 0;
-        }
-        
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            z-index: 1001;
-        }
-        
-        .logo h1 {
-            font-size: 1.4rem;
-            margin-left: 8px;
-            background: linear-gradient(90deg, var(--f1-red), var(--f1-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .logo-icon {
-            color: var(--f1-red);
-            font-size: 1.6rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        nav {
-            display: flex;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.2rem;
             position: relative;
         }
-        
-        nav ul li a {
-            color: var(--f1-white);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            padding: 0.5rem 0.6rem;
-            position: relative;
-            font-size: 0.9rem;
-        }
-        
-        nav ul li a::after {
-            content: '';
+
+        /* Logo Styling */
+        .logo-container {
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, var(--f1-red), var(--f1-yellow));
-            transition: width 0.3s;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
         }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+
+        .logo {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
-        
-        .auth-buttons {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            font-family: 'Exo 2', sans-serif;
-            font-size: 0.9rem;
-        }
-        
-        .btn-login {
-            background-color: transparent;
-            color: var(--f1-white);
-            border: 1px solid var(--f1-white);
-        }
-        
-        .btn-register {
-            background: linear-gradient(90deg, var(--f1-red), #ff4d4d);
-            color: var(--f1-white);
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Mobile Menu Optimizado */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--f1-white);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 0.5rem;
-        }
-        
-        /* Hero Section Optimizada para Móviles */
-        .hero {
-            background: linear-gradient(rgba(21, 21, 30, 0.8), rgba(21, 21, 30, 0.8)), 
-                        url('https://static.vecteezy.com/system/resources/previews/038/498/248/non_2x/ai-generated-car-is-driving-on-an-empty-race-track-at-sunset-free-photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-            color: var(--f1-white);
-            padding: 7rem 0 4rem;
+
+        header {
+            padding: 180px 20px 100px;
             text-align: center;
+            position: relative;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            position: relative;
+            align-items: center;
             overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        
-        .hero::before {
-            content: '';
+
+        .hero-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, transparent 10%, rgba(21, 21, 30, 0.9) 70%);
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
         }
-        
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            z-index: 0;
+        }
+
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10;
+            max-width: 900px;
             animation: fadeInUp 1s ease-out;
-            padding: 0 1rem;
         }
-        
-        .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-            background: linear-gradient(90deg, var(--f1-white), var(--f1-red));
+
+        header h1 {
+            font-size: 4.5em;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 1px;
-            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+            letter-spacing: -1px;
+            font-family: 'Montserrat', sans-serif;
         }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 100%;
-            margin: 0 auto 2.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            line-height: 1.5;
+
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.4em;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+            opacity: 0;
         }
-        
-        .btn-hero {
-            background: linear-gradient(90deg, var(--f1-red), #ff4d4d);
-            color: var(--f1-white);
-            padding: 0.9rem 2rem;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 50px;
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-btn {
             display: inline-block;
-            transition: all 0.3s;
-            animation: pulse 2s infinite 1s;
-            box-shadow: 0 4px 15px rgba(225, 6, 0, 0.4);
-            font-weight: bold;
-            letter-spacing: 1px;
+            padding: 18px 45px;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--text-primary);
+            font-size: 1.2em;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
-        
-        .btn-hero::before {
+
+        .hero-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            z-index: 999;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
         }
-        
-        .btn-hero:hover::before {
-            left: 100%;
-        }
-        
-        .btn-hero:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(225, 6, 0, 0.6);
-        }
-        
-        /* Animaciones Mejoradas */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .fade-in-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Secciones comunes optimizadas para móviles */
+
         section {
-            padding: 3.5rem 0;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
+
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--f1-dark);
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--text-primary);
             position: relative;
-            font-size: 1.8rem;
-            padding: 0 1rem;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
         }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--f1-red), var(--f1-yellow));
-            margin: 15px auto;
-            border-radius: 2px;
-        }
-        
-        /* Catálogo Optimizado para Móviles */
-        .catalog {
-            background-color: var(--f1-white);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.8rem;
-        }
-        
-        .product-card {
-            background-color: var(--f1-light);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .product-card::after {
+
+        .section-title h2::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(225, 6, 0, 0.1), rgba(255, 215, 0, 0.1));
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        
-        .product-card:hover::after {
-            opacity: 1;
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, var(--f1-red), #ff4d4d);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            z-index: 2;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite;
-        }
-        
-        .product-image {
-            height: 260px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            background-color: #f9f9f9;
-            padding: 1rem;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-info {
-            padding: 1.2rem;
-            position: relative;
-            z-index: 1;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-title {
-            font-weight: bold;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            min-height: 2.8rem;
-            line-height: 1.3;
-        }
-        
-        .product-rating {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-        }
-        
-        .product-stars {
-            color: var(--f1-yellow);
-            font-size: 0.9rem;
-            margin-right: 5px;
-        }
-        
-        .product-reviews {
-            color: var(--f1-gray);
-            font-size: 0.8rem;
-        }
-        
-        .product-price {
-            color: var(--f1-red);
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-        }
-        
-        .btn-buy {
-            background: linear-gradient(90deg, var(--f1-dark), #2a2a3a);
-            color: var(--f1-white);
-            width: 100%;
-            padding: 0.9rem;
-            transition: all 0.3s;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            border-radius: 6px;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-            margin-top: auto;
-        }
-        
-        .btn-buy::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .btn-buy:hover::before {
-            left: 100%;
-        }
-        
-        .btn-buy:hover {
-            background: linear-gradient(90deg, var(--f1-red), #ff4d4d);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
-        }
-        
-        /* Sección Quiénes Somos Optimizada para Móviles */
-        .about {
-            background-color: var(--f1-white);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
-        
-        .about-text h3 {
-            color: var(--f1-red);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .about-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .about-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-        }
-        
-        /* Sección de Reseñas Optimizada para Móviles */
-        .reviews {
-            background-color: var(--f1-light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .reviews::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1591134100271-1cb5b71ebc1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.8rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .review-card {
-            background-color: var(--f1-white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--f1-red), var(--f1-yellow));
-        }
-        
-        .review-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.2rem;
-        }
-        
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--f1-red), var(--f1-yellow));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--f1-white);
-            font-weight: bold;
-            margin-right: 1.2rem;
-            font-size: 1.3rem;
-        }
-        
-        .review-stars {
-            color: var(--f1-yellow);
-            margin-bottom: 0.6rem;
-            font-size: 1rem;
-        }
-        
-        /* Sección de Fundadores Optimizada para Móviles */
-        .founders {
-            background-color: var(--f1-white);
-        }
-        
-        .founders-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.8rem;
-        }
-        
-        .founder-card {
-            background: linear-gradient(135deg, var(--f1-white), #f9f9f9);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .founder-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--f1-red), var(--f1-yellow));
-        }
-        
-        .founder-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .founder-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--f1-red), var(--f1-yellow));
-            margin: 0 auto 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--f1-white);
-            font-size: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .founder-name {
-            font-weight: bold;
-            margin-bottom: 0.6rem;
-            color: var(--f1-dark);
-            font-size: 1.2rem;
-            line-height: 1.3;
-        }
-        
-        .founder-role {
-            color: var(--f1-red);
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        /* Ubicación Optimizada para Móviles */
-        .location {
-            background-color: var(--f1-light);
-        }
-        
-        .location-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-        
-        .location-info h3 {
-            margin-bottom: 1.2rem;
-            color: var(--f1-red);
-            font-size: 1.5rem;
-        }
-        
-        .location-info p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .location-map {
-            height: 300px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .location-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Formulario de Registro Optimizado para Móviles */
-        .register {
-            background: linear-gradient(135deg, var(--f1-dark), #1a1a2a);
-            color: var(--f1-white);
-            padding: 3.5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .register::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1568216651129-e9fc7e8a3e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .register .section-title {
-            color: var(--f1-white);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .register .section-title:after {
-            background: linear-gradient(90deg, var(--f1-yellow), var(--f1-red));
-        }
-        
-        .register-form {
-            max-width: 100%;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.8rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            position: absolute;
-            top: 0.8rem;
-            left: 1rem;
-            transition: all 0.3s ease;
-            pointer-events: none;
-            color: #ccc;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--f1-white);
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--f1-red);
-            box-shadow: 0 0 0 2px rgba(225, 6, 0, 0.3);
-        }
-        
-        .form-group input:focus + label,
-        .form-group input:not(:placeholder-shown) + label {
-            top: -0.5rem;
-            left: 0.5rem;
-            font-size: 0.8rem;
-            color: var(--f1-yellow);
-            background: var(--f1-dark);
-            padding: 0 0.5rem;
-        }
-        
-        .btn-submit {
-            background: linear-gradient(90deg, var(--f1-red), #ff4d4d);
-            color: var(--f1-white);
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
-        }
-        
-        .btn-submit.loading {
-            pointer-events: none;
-        }
-        
-        .btn-submit.loading::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-            animation: loading 1s infinite;
-        }
-        
-        @keyframes loading {
-            100% { left: 100%; }
-        }
-        
-        /* Footer Optimizado para Móviles */
-        footer {
-            background: linear-gradient(135deg, var(--f1-dark), #0a0a12);
-            color: var(--f1-white);
-            padding: 3rem 0 1.2rem;
-            position: relative;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-        }
-        
-        .footer-column h3 {
-            color: var(--f1-red);
-            margin-bottom: 1.2rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.6rem;
-        }
-        
-        .footer-column ul li a {
-            color: var(--f1-light);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--f1-red);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1.2rem;
-        }
-        
-        .social-icon {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--f1-white);
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        
-        .social-icon:hover {
-            background: var(--f1-red);
-            transform: translateY(-5px) scale(1.1);
-        }
-        
-        .social-icon .tooltip {
-            position: absolute;
-            top: -40px;
-            background: var(--f1-white);
-            color: var(--f1-dark);
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-        
-        .social-icon:hover .tooltip {
-            opacity: 1;
-            top: -35px;
-        }
-        
-        .social-icon .tooltip::before {
-            content: '';
-            position: absolute;
-            bottom: -4px;
+            bottom: -15px;
             left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            width: 8px;
-            height: 8px;
-            background: var(--f1-white);
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--text-primary);
         }
-        
-        .footer-bottom {
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section - Mi Historia en Números */
+        .stats-section {
+            background: var(--bg-light);
+            border-radius: 30px;
+            margin: 40px auto;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
-        /* WhatsApp Float Button Optimizado para Móviles */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--text-primary);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 4em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        /* Services Section - Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: left;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--text-primary);
+            box-shadow: 0 30px 60px rgba(255, 255, 255, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            border: 2px solid var(--text-primary);
+        }
+
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .service-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--text-primary);
+            font-size: 1.1em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--bg-light);
+            border-radius: 30px;
+            margin: 40px auto;
+            padding: 80px 40px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--text-primary);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4em;
+            color: var(--text-primary);
+            opacity: 0.3;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-            z-index: 100;
-            transition: all 0.3s;
-            animation: pulse-green 2s infinite;
+            font-weight: bold;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+            font-size: 1.3em;
+        }
+
+        .author-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--text-primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--text-primary);
+            box-shadow: 0 30px 60px rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-name {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .pricing-price {
+            font-size: 3.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .pricing-price span {
+            font-size: 0.4em;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--text-primary);
+        }
+
+        .pricing-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--text-primary);
+            font-size: 1.1em;
+            width: 100%;
+        }
+
+        .pricing-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-light);
+            border-radius: 30px;
+            margin: 40px auto;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 18px 40px;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--text-primary);
+            font-size: 1.2em;
+            gap: 15px;
+        }
+
+        .contact-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-btn:hover {
+            background: var(--whatsapp);
+            border-color: var(--whatsapp);
+        }
+
+        .email-btn:hover {
+            background: var(--email);
+            border-color: var(--email);
+        }
+
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: all 0.4s ease;
             text-decoration: none;
         }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
-        }
-        
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        
-        /* Scroll to Top Button Optimizado para Móviles */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--f1-red), #ff4d4d);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 15px rgba(225, 6, 0, 0.4);
-            z-index: 99;
-            cursor: pointer;
-            transition: all 0.3s;
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .scroll-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .scroll-to-top:hover {
+
+        .social-links a:hover {
+            background: var(--text-primary);
+            color: var(--bg-dark);
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(225, 6, 0, 0.6);
         }
-        
-        /* Estilos Responsive Mejorados para Móviles */
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
+            header {
+                background-attachment: scroll;
+                padding: 150px 20px 80px;
             }
             
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                height: 100vh;
-                background: linear-gradient(135deg, var(--f1-dark), #1a1a2a);
-                padding: 5rem 1.5rem 2rem;
-                transition: right 0.4s ease;
-                z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                margin-top: 2rem;
-            }
-            
-            nav ul li {
-                margin: 0.8rem 0;
-            }
-            
-            nav ul li a {
-                font-size: 1.1rem;
-                padding: 0.8rem 1rem;
-                display: block;
-                border-radius: 6px;
-                transition: all 0.3s;
-            }
-            
-            nav ul li a:hover {
-                background: rgba(225, 6, 0, 0.2);
-            }
-            
-            .header-content {
-                flex-wrap: wrap;
-            }
-            
-            .auth-buttons {
-                margin-top: 1rem;
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .hero {
-                padding: 6rem 0 3rem;
-                min-height: 100vh;
-            }
-            
-            .hero h2 {
-                font-size: 1.9rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                padding: 0 0.5rem;
-            }
-            
-            .btn-hero {
-                padding: 0.8rem 1.8rem;
-                font-size: 1rem;
-            }
-            
-            .products-grid, .reviews-grid, .founders-grid {
+            header h1 { font-size: 3em; }
+            header .subtitle { font-size: 1.1em; }
+            .section-title h2 { font-size: 2.5em; }
+            .services-grid, .testimonials-grid, .portfolio-grid, .pricing-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .product-image {
-                height: 240px;
-            }
-            
-            /* Optimización específica para la sección Quiénes Somos en móviles */
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .about-image img {
-                max-width: 100%;
-                height: auto;
-            }
-            
-            .register-form {
-                padding: 1.5rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .founder-card {
-                padding: 1.2rem;
-            }
-            
-            .founder-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2rem;
-            }
-            
-            .location-map {
-                height: 250px;
-            }
-            
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                font-size: 1.8rem;
-            }
-            
-            .scroll-to-top {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                bottom: 85px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo h1 {
-                font-size: 1.2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.7rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .product-image {
-                height: 220px;
-            }
-            
-            .register-form {
-                padding: 1.2rem;
-            }
-            
-            .social-icons {
-                justify-content: center;
-            }
-            
-            .footer-column {
-                text-align: center;
-            }
-            
-            .btn {
-                padding: 0.5rem 0.9rem;
-                font-size: 0.85rem;
-            }
-            
-            .container {
-                width: 95%;
-                padding: 0 0.5rem;
-            }
-            
-            section {
-                padding: 2.5rem 0;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            
-            .hero p {
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-            }
-            
-            .product-image {
-                height: 200px;
-            }
-            
-            .btn-hero {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Reduce motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            .fade-in-section {
-                transition: none;
-            }
-            .product-card:hover {
+            .pricing-card.featured {
                 transform: none;
             }
-            * {
-                transition-duration: 0s !important;
-                animation-duration: 0s !important;
+            .hero-btns, .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .logo-container {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🏎️</span>
-                    <h1>F1 Store</h1>
-                </div>
-                
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <nav>
-                    <button class="mobile-close-btn" style="display: none; background: none; border: none; color: white; font-size: 1.5rem; position: absolute; top: 1rem; right: 1rem;">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#catalogo">Catálogo</a></li>
-                        <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                        <li><a href="#reseñas">Reseñas</a></li>
-                        <li><a href="#fundadores">Fundadores</a></li>
-                        <li><a href="#ubicacion">Ubicación</a></li>
-                    </ul>
-                </nav>
-                <div class="auth-buttons">
-                    <button class="btn btn-login">Iniciar Sesión</button>
-                    <button class="btn btn-register">Registrarse</button>
-                </div>
+    <!-- Logo Placeholder -->
+    <div class="logo-container">
+        <!-- Reemplaza esta imagen con tu logo -->
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjMDAwMDAwIi8+Cjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+QVZWIENyZWF0aXZlPC90ZXh0Pgo8L3N2Zz4K" alt="AV Visuals Logo" class="logo">
+    </div>
+
+    <header>
+        <div class="gradient-overlay"></div>
+        <div class="hero-content">
+            <h1>Transformando números en éxito visual</h1>
+            <p class="subtitle">Potenciando marcas e influencers con edición profesional y estrategia visual inteligente</p>
+            <div class="hero-btns">
+                <a href="#servicios" class="hero-btn">Ver Servicios</a>
+                <a href="#contacto" class="hero-btn">Contactar Ahora</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero fade-in-section" id="inicio">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Camisas Oficiales de Fórmula 1</h2>
-                <p>Viste con el estilo y la pasión de la máxima categoría del automovilismo. Camisas de alta calidad de todos los equipos y pilotos.</p>
-                <a href="#catalogo" class="btn btn-hero">Ver Catálogo</a>
+    <nav>
+        <a href="#historia">Mi Historia</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="historia" class="stats-section">
+        <div class="section-title">
+            <h2>Mi Historia en Números</h2>
+            <p>Transformando números en éxito visual para marcas e influencers</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">VIDEOS EDITADOS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">500K+</span>
+                <span class="stat-label">VISTAS GENERADAS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">5</span>
+                <span class="stat-label">INFLUENCERS DE ALTO PERFIL</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1000</span>
+                <span class="stat-label">HORAS DE EDICIÓN</span>
             </div>
         </div>
     </section>
 
-    <!-- Catálogo -->
-    <section class="catalog fade-in-section" id="catalogo">
-        <div class="container">
-            <h2 class="section-title">Nuestro Catálogo</h2>
-            <div class="products-grid">
-                <!-- Producto 1 - Más Popular -->
-                <div class="product-card">
-                    <div class="product-badge">Más Popular</div>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/51WVRGOMvoL._UY1000_.jpg" alt="Camisa Red Bull Racing">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Camisa Red Bull Racing 2024</div>
-                        <div class="product-rating">
-                            <div class="product-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="product-reviews">(128 reseñas)</div>
-                        </div>
-                        <div class="product-price">$49.99</div>
-                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
+    <section id="servicios">
+        <div class="section-title">
+            <h2>Servicios</h2>
+            <p>Soluciones visuales personalizadas para cada necesidad</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-camera-reels"></i>
+                </div>
+                <h3>Edición Profesional de Videos</h3>
+                <p>Transformo conceptos en videos impactantes con edición profesional, efectos visuales y corrección de color para maximizar el engagement.</p>
+                <a href="#contacto" class="service-btn">Agenda una llamada</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-instagram"></i>
+                </div>
+                <h3>Contenido para Influencers</h3>
+                <p>Diseño y edito contenido estratégico para influencers que genera engagement y crecimiento orgánico en redes sociales.</p>
+                <a href="#contacto" class="service-btn">Agenda una llamada</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+                <h3>Visual Branding para Empresas</h3>
+                <p>Desarrollo identidad visual corporativa consistente y profesional que comunica los valores de tu marca de manera efectiva.</p>
+                <a href="#contacto" class="service-btn">Agenda una llamada</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="testimonials-section">
+        <div class="section-title">
+            <h2>Testimonios</h2>
+            <p>Lo que dicen mis clientes sobre mi trabajo</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">AV Visuals transformó completamente nuestra presencia en redes. La calidad visual y el impacto en nuestro engagement fueron evidentes desde el primer día.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DG</div>
+                    <div class="author-info">
+                        <h4>David Gutiérrez</h4>
+                        <p>CEO de Marca X</p>
                     </div>
                 </div>
-                
-                <!-- Producto 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://www.cmcmotorsports.com/cdn/shop/products/701223379001_PP_1_FERRARI_WHITE-hi-res_22848f2e-8150-421b-a506-c24f541ab9cf.jpg?v=1675874032" alt="Camisa Ferrari">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Camisa Ferrari Scuderia</div>
-                        <div class="product-rating">
-                            <div class="product-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div class="product-reviews">(96 reseñas)</div>
-                        </div>
-                        <div class="product-price">$54.99</div>
-                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
-                    </div>
-                </div>
-                
-                <!-- Producto 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="http://shop-us.mercedesamgf1.com/cdn/shop/files/JW5363_1_APPAREL_Photography_FrontCenterView_grey030225030225.jpg?v=1738589001&width=3200" alt="Camisa Mercedes-AMG">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Camisa Mercedes-AMG Petronas</div>
-                        <div class="product-rating">
-                            <div class="product-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-reviews">(142 reseñas)</div>
-                        </div>
-                        <div class="product-price">$52.99</div>
-                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
-                    </div>
-                </div>
-                
-                <!-- Producto 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="http://us.mclarenstore.com/cdn/shop/files/TM9913-088-AUTUMNGLORY-PHANTOM-01_970X1219_c10fc9e9-e3f7-44f3-80cc-fbe65d692fdc.jpg?v=1739288367" alt="Camisa McLaren">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Camisa McLaren F1 Team</div>
-                        <div class="product-rating">
-                            <div class="product-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="product-reviews">(87 reseñas)</div>
-                        </div>
-                        <div class="product-price">$47.99</div>
-                        <a href="http://wa.me/50374726705" class="btn btn-buy" target="_blank">Comprar Ahora</a>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Trabajar con AV Visuals elevó mi contenido a otro nivel. Son creativos, meticulosos con los detalles y siempre entregan a tiempo superando expectativas.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">KM</div>
+                    <div class="author-info">
+                        <h4>Karen Martínez</h4>
+                        <p>Influencer & Content Creator</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quiénes Somos -->
-    <section class="about fade-in-section" id="quienes-somos">
-        <div class="container">
-            <h2 class="section-title">Quiénes Somos</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Fanáticos de la F1</h3>
-                    <p>Somos apasionados de la Fórmula 1 y entendemos lo que significa vestir los colores de tu equipo favorito. Desde 2010, nos dedicamos a ofrecer las mejores camisas oficiales y de alta calidad para los aficionados al deporte motor.</p>
-                    <p>Nuestra misión es acercar la emoción de la F1 a través de productos auténticos que representen la esencia de cada escudería y piloto.</p>
-                    <p>Trabajamos directamente con proveedores autorizados para garantizar la autenticidad de todos nuestros productos.</p>
+    <section id="portafolio">
+        <div class="section-title">
+            <h2>Portafolio</h2>
+            <p>Algunos de mis trabajos más destacados</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Proyecto 1">
+                <div class="portfolio-overlay">
+                    <h3>Campaign for Fashion Brand</h3>
+                    <p>Video Editing & Color Grading</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://f1store4.formula1.com/content/ws/all/5e270eab-f2eb-47e3-810d-dde2742fb47c__800X1080.png" alt="Nuestro equipo">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Proyecto 2">
+                <div class="portfolio-overlay">
+                    <h3>Social Media Content Series</h3>
+                    <p>Content Strategy & Video Editing</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Proyecto 3">
+                <div class="portfolio-overlay">
+                    <h3>Corporate Branding Video</h3>
+                    <p>Motion Graphics & Visual Effects</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reseñas -->
-    <section class="reviews fade-in-section" id="reseñas">
-        <div class="container">
-            <h2 class="section-title">Reseñas de Clientes</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">M</div>
-                        <div>
-                            <h3>Miguel Ángel</h3>
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>"Excelente calidad en las camisas. La de Ferrari es exactamente como la esperaba. El envío fue rápido y el servicio al cliente muy atento."</p>
+    <section id="precios">
+        <div class="section-title">
+            <h2>Planes y Precios</h2>
+            <p>Soluciones adaptadas a tu presupuesto y necesidades</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Básico</div>
+                    <div class="pricing-price">$20<span>/video</span></div>
                 </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            <h3>Carolina</h3>
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>"Compré la camisa de Red Bull para mi esposo y le encantó. La tela es de muy buena calidad y los detalles están bien hechos. Definitivamente volveré a comprar."</p>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check"></i> Edición básica de video</li>
+                    <li><i class="bi bi-check"></i> Corrección de color</li>
+                    <li><i class="bi bi-check"></i> Formato para redes sociales</li>
+                    <li><i class="bi bi-check"></i> 1 revisión incluida</li>
+                    <li><i class="bi bi-check"></i> Entrega en 48 horas</li>
+                </ul>
+                <a href="#contacto" class="pricing-btn">Seleccionar Plan</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <div class="pricing-name">Profesional</div>
+                    <div class="pricing-price">$35<span>/video</span></div>
                 </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">R</div>
-                        <div>
-                            <h3>Roberto</h3>
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>"Soy coleccionista de productos de F1 y esta tienda tiene los artículos más auténticos que he encontrado. El proceso de compra fue sencillo y la comunicación excelente."</p>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check"></i> Edición avanzada profesional</li>
+                    <li><i class="bi bi-check"></i> Motion graphics básicos</li>
+                    <li><i class="bi bi-check"></i> Corrección de color avanzada</li>
+                    <li><i class="bi bi-check"></i> 3 revisiones incluidas</li>
+                    <li><i class="bi bi-check"></i> Formato multi-plataforma</li>
+                    <li><i class="bi bi-check"></i> Entrega en 72 horas</li>
+                </ul>
+                <a href="#contacto" class="pricing-btn">Seleccionar Plan</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Premium</div>
+                    <div class="pricing-price">$55<span>/video</span></div>
                 </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check"></i> Edición premium completa</li>
+                    <li><i class="bi bi-check"></i> Motion graphics avanzados</li>
+                    <li><i class="bi bi-check"></i> Efectos visuales especiales</li>
+                    <li><i class="bi bi-check"></i> Revisiones ilimitadas</li>
+                    <li><i class="bi bi-check"></i> Asesoría estratégica</li>
+                    <li><i class="bi bi-check"></i> Entrega en 5 días</li>
+                </ul>
+                <a href="#contacto" class="pricing-btn">Seleccionar Plan</a>
             </div>
         </div>
     </section>
 
-    <!-- Fundadores -->
-    <section class="founders fade-in-section" id="fundadores">
-        <div class="container">
-            <h2 class="section-title">Nuestros Fundadores</h2>
-            <div class="founders-grid">
-                <div class="founder-card">
-                    <div class="founder-avatar">C</div>
-                    <div class="founder-name">Christian Alexis Albayero Velasquez</div>
-                    <div class="founder-role">Fundador Principal</div>
-                    <p>Visionario y apasionado de la F1 desde niño, Christian lidera la estrategia y desarrollo de la empresa.</p>
-                </div>
-                
-                <div class="founder-card">
-                    <div class="founder-avatar">J</div>
-                    <div class="founder-name">Jennifer Gabriela Escobar Umanzor</div>
-                    <div class="founder-role">Directora de Marketing</div>
-                    <p>Especialista en branding y relaciones públicas, Jennifer maneja la imagen y promoción de la marca.</p>
-                </div>
-                
-                <div class="founder-card">
-                    <div class="founder-avatar">G</div>
-                    <div class="founder-name">Gisela Valentina Morataya Salgado</div>
-                    <div class="founder-role">Directora de Operaciones</div>
-                    <p>Con amplia experiencia en logística, Gisela asegura que cada pedido llegue a tiempo y en perfectas condiciones.</p>
-                </div>
-                
-                <div class="founder-card">
-                    <div class="founder-avatar">J</div>
-                    <div class="founder-name">Jaquelline Esthefany Cruz Molina</div>
-                    <div class="founder-role">Directora Financiera</div>
-                    <p>Experta en finanzas y administración, Jaquelline gestiona los recursos y planificación económica de la empresa.</p>
-                </div>
-            </div>
+    <section id="contacto" class="contact-section">
+        <div class="section-title">
+            <h2>¿Listo para Transformar tu Contenido?</h2>
+            <p>Hablemos sobre tu proyecto y cómo podemos trabajar juntos</p>
+        </div>
+        <div class="contact-buttons">
+            <a href="https://wa.me/+50374726705" class="contact-btn whatsapp-btn">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:alexiseditor@gmail.com" class="contact-btn email-btn">
+                <i class="bi bi-envelope"></i> Enviar Email
+            </a>
         </div>
     </section>
 
-    <!-- Ubicación -->
-    <section class="location fade-in-section" id="ubicacion">
-        <div class="container">
-            <h2 class="section-title">Nuestra Ubicación</h2>
-            <div class="location-content">
-                <div class="location-info">
-                    <h3>Visita Nuestra Tienda</h3>
-                    <p>Estamos ubicados en la Universidad Gerardo Barrios, con fácil acceso y amplio estacionamiento.</p>
-                    <p><strong>Dirección:</strong> Universidad Gerardo Barrios, Ciudad</p>
-                    <p><strong>Horario:</strong> Miércoles de 8:50 AM a 10:30 AM y Jueves de 7:00 AM a 8:30 AM </p>
-                    <p><strong>Teléfono:</strong> 503 7472 6705</p>
-                    <p><strong>Email:</strong> formula91@gmail.com</p>
-                </div>
-                <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3879.223676327255!2d-88.1262329246874!3d13.48123520244805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7aa36c5b5a5a5f%3A0x5e3e1e3e1e3e1e3e!2sUniversidad%20Gerardo%20Barrios!5e0!3m2!1ses!2ssv!4v1640000000000!5m2!1ses!2ssv" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulario de Registro -->
-    <section class="register fade-in-section">
-        <div class="container">
-            <h2 class="section-title">Regístrate para Ofertas Exclusivas</h2>
-            <div class="register-form">
-                <form id="registration-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder=" " required>
-                        <label for="name">Nombre Completo</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder=" " required>
-                        <label for="email">Correo Electrónico</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" id="password" name="password" placeholder=" " required>
-                        <label for="password">Contraseña</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required>
-                        <label for="confirm-password">Confirmar Contraseña</label>
-                    </div>
-                    <button type="submit" class="btn btn-submit">Registrarse</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>F1 Store</h3>
-                    <p>Tu tienda oficial de camisas de Fórmula 1. Calidad y autenticidad garantizadas.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i><span class="tooltip">Facebook</span></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i><span class="tooltip">Instagram</span></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i><span class="tooltip">X (Twitter)</span></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i><span class="tooltip">YouTube</span></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#catalogo">Catálogo</a></li>
-                        <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                        <li><a href="#reseñas">Reseñas</a></li>
-                        <li><a href="#fundadores">Fundadores</a></li>
-                        <li><a href="#ubicacion">Ubicación</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Ayuda</h3>
-                    <ul>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                        <li><a href="#">Envíos y Devoluciones</a></li>
-                        <li><a href="#">Política de Privacidad</a></li>
-                        <li><a href="#">Términos y Condiciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>Teléfono: 503 7472 6705</li>
-                        <li>Email: formula91@gmail.com</li>
-                        <li>Dirección: Universidad Gerardo Barrios</li>
-                        <li>Horario: Miércoles a Jueves: 8:00 AM - 10:30 PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 F1 Store. Todos los derechos reservados.</p>
-            </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/alexis_.av0/" target="_blank" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@alexis_av0" target="_blank" aria-label="TikTok">
+                <i class="bi bi-tiktok"></i>
+            </a>
+            <a href="https://www.youtube.com/@AVVisuals" target="_blank" aria-label="YouTube">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/avvisuals" target="_blank" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
         </div>
+        <p>© 2025 AV Visuals | Editor Profesional | Todos los derechos reservados</p>
+        <p style="margin-top: 20px; color: #666; font-size: 0.9em;">Transformando ideas en experiencias visuales inolvidables</p>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="http://wa.me/50374726705" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav');
-        const mobileCloseBtn = document.createElement('button');
-        
-        mobileCloseBtn.innerHTML = '<i class="fas fa-times"></i>';
-        mobileCloseBtn.style.cssText = 'background: none; border: none; color: white; font-size: 1.5rem; position: absolute; top: 1rem; right: 1rem; cursor: pointer; z-index: 1001;';
-        mobileCloseBtn.classList.add('mobile-close-btn');
-        nav.appendChild(mobileCloseBtn);
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            nav.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        mobileCloseBtn.addEventListener('click', () => {
-            nav.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
+        // Animación de números para las estadísticas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observador de intersección para animaciones
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Scroll to top button
-            const scrollToTopBtn = document.querySelector('.scroll-to-top');
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('active');
-            } else {
-                scrollToTopBtn.classList.remove('active');
-            }
-        });
-
-        // Scroll to top functionality
-        document.querySelector('.scroll-to-top').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Parallax for Hero
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const parallaxSpeed = 0.5;
-            const hero = document.querySelector('.hero');
-            hero.style.backgroundPositionY = `${scrollPosition * parallaxSpeed}px`;
-        });
-
-        // Enhanced Fade-in Observer with staggered animations
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Add staggered animation for child elements
-                    const children = entry.target.querySelectorAll('.product-card, .review-card, .founder-card');
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.style.opacity = '1';
-                            child.style.transform = 'translateY(0)';
-                        }, index * 200);
-                    });
-                    
-                    sectionObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        sections.forEach(section => {
-            // Set initial state for child elements
-            const children = section.querySelectorAll('.product-card, .review-card, .founder-card');
-            children.forEach(child => {
-                child.style.opacity = '0';
-                child.style.transform = 'translateY(20px)';
-                child.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
-            
-            sectionObserver.observe(section);
-        });
-
-        // Validación del formulario de registro con loading
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const submitBtn = this.querySelector('.btn-submit');
-            submitBtn.classList.add('loading');
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            
-            if (password !== confirmPassword) {
-                alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
-                submitBtn.classList.remove('loading');
-                return;
-            }
-            
-            // Simular envío
-            setTimeout(() => {
-                alert('¡Registro exitoso! Te hemos enviado un correo de confirmación.');
-                submitBtn.classList.remove('loading');
-                this.reset();
-            }, 1500);
-        });
-        
-        // Enhanced smooth scrolling
-        document.querySelectorAll('nav a, .btn-hero').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Botones de registro e inicio de sesión
-        document.querySelector('.btn-register').addEventListener('click', function() {
-            document.querySelector('.register').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-        
-        document.querySelector('.btn-login').addEventListener('click', function() {
-            alert('Funcionalidad de inicio de sesión en desarrollo.');
-        });
-
-        // Enhanced product hover effects for mobile
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statCards = entry.target.querySelectorAll('.stat-card');
+                        statCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, index * 200);
+                        });
+                    }
                 });
-                
-                card.addEventListener('touchend', function() {
-                    this.style.transform = '';
+            }, observerOptions);
+
+            // Aplicar a sección de estadísticas
+            const statsSection = document.getElementById('historia');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // Inicializar estilos para las tarjetas de estadísticas
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            // Smooth scrolling para enlaces del menú
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
-        }
 
-        // Add loading animation to product images
-        document.querySelectorAll('.product-image img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-                this.style.transition = 'opacity 0.5s ease';
-            });
-            
-            // Set initial opacity to 0 for fade-in effect
-            img.style.opacity = '0';
+            // Animación de contadores de estadísticas
+            function animateCounter(element, target, duration = 2000) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+                    }
+                }, 16);
+            }
+
+            // Iniciar animación de contadores cuando la sección es visible
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.stat-number').forEach(stat => {
+                            const text = stat.textContent;
+                            const number = parseInt(text.replace('+', ''));
+                            
+                            if (!isNaN(number)) {
+                                stat.textContent = '0' + (text.includes('+') ? '+' : '');
+                                setTimeout(() => {
+                                    animateCounter(stat, number);
+                                }, 500);
+                            }
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
         });
     </script>
 </body>
 </html>
-
