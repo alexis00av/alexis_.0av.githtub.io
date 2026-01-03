@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AV Visuals | Editor Profesional</title>
+    <title>AV Visuals | Professional Editor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,48 @@
             position: relative;
         }
 
-        /* Logo Styling - Actualizado */
+        /* Language Switcher - Mejorado */
+        .language-switcher {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            border-color: var(--text-primary);
+        }
+
+        .lang-btn i {
+            font-size: 1.1em;
+        }
+
+        /* Logo Styling - Mejorado para móviles */
         .logo-container {
             position: absolute;
             top: 30px;
@@ -92,10 +133,97 @@
             animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
         }
 
-        .logo-img {
-            height: 60px;
-            width: auto;
-            filter: brightness(0) invert(1);
+        /* Menú mejorado - Hamburguesa para móviles */
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            z-index: 999;
+            animation: slideDown 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            padding: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-primary);
+            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Menú Hamburguesa */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1000;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         header {
@@ -115,7 +243,6 @@
             background-attachment: fixed;
         }
 
-        /* Netflix-style video background effect */
         .video-background-effect {
             position: absolute;
             top: 0;
@@ -130,18 +257,9 @@
         }
 
         @keyframes pulseBackground {
-            0% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.02);
-            }
-            100% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.02); }
+            100% { opacity: 0.4; transform: scale(1); }
         }
 
         .gradient-overlay {
@@ -257,20 +375,6 @@
             left: 100%;
         }
 
-        nav {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            z-index: 999;
-            animation: slideDown 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
         @keyframes slideDown {
             0% {
                 transform: translateY(-100%);
@@ -280,36 +384,6 @@
                 transform: translateY(0);
                 opacity: 1;
             }
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            padding: 5px 0;
-            font-size: 1.1em;
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-            transform: translateY(-2px);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--text-primary);
-            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        nav a:hover::after {
-            width: 100%;
         }
 
         section {
@@ -1134,68 +1208,159 @@
             100% { transform: translateY(0px); }
         }
 
-        /* Apple-style smooth transitions */
-        .apple-transition {
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        /* Netflix-style hover effects */
-        .netflix-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* Responsive Design Mejorado */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 1em;
+            }
+            
+            header h1 {
+                font-size: 3.8em;
+            }
         }
 
         @media (max-width: 768px) {
-            header {
-                background-attachment: scroll;
-                padding: 150px 20px 80px;
-                background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
-                            url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-                background-size: cover;
-                background-position: center;
-            }
-            
+            /* Mejoras para el logo en móviles */
             .logo-container {
                 left: 50%;
                 transform: translateX(-50%);
-                flex-direction: column;
                 text-align: center;
-                gap: 10px;
-            }
-            
-            .logo-text {
-                order: 2;
-            }
-            
-            .logo-img {
-                order: 1;
-                height: 50px;
+                width: 100%;
+                justify-content: center;
+                top: 20px;
             }
             
             .logo-main {
-                font-size: 20px;
+                font-size: 22px;
             }
             
             .logo-tagline {
                 font-size: 10px;
             }
             
-            header h1 { 
-                font-size: 3em; 
-                animation: netflixTitleReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s forwards;
+            /* Language switcher mejorado */
+            .language-switcher {
+                top: 20px;
+                right: 20px;
+                flex-direction: row;
+                gap: 5px;
             }
             
-            header .subtitle { 
-                font-size: 1.1em; 
-                animation: fadeInUp 0.8s ease-out 0.6s forwards;
+            .lang-btn {
+                padding: 6px 15px;
+                font-size: 0.8em;
             }
             
-            .section-title h2 { 
-                font-size: 2.5em; 
-                animation: sectionTitleReveal 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            /* Menú hamburguesa */
+            .nav-container {
+                justify-content: space-between;
             }
             
-            .services-grid, .testimonials-grid, .portfolio-grid, .pricing-grid {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 80px 30px 30px;
+                gap: 25px;
+                transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                z-index: 998;
+                border-left: 1px solid var(--border-color);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2em;
+                width: 100%;
+                padding: 12px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            /* Header ajustado */
+            header {
+                padding: 150px 20px 80px;
+                background-attachment: scroll;
+            }
+            
+            header h1 {
+                font-size: 2.8em;
+            }
+            
+            header .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .hero-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                padding: 16px 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3em;
+            }
+            
+            .section-title p {
+                font-size: 1.1em;
+            }
+            
+            /* Stats mejorados */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-card {
+                padding: 25px 20px;
+            }
+            
+            .stat-number {
+                font-size: 3em;
+            }
+            
+            .stat-label {
+                font-size: 1em;
+            }
+            
+            /* Services mejorados */
+            .services-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .service-card {
+                padding: 40px 25px;
+            }
+            
+            /* Pricing mejorado */
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             .pricing-card.featured {
@@ -1206,36 +1371,67 @@
                 animation: cardReveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
             }
             
-            .hero-btns, .contact-buttons {
+            .pricing-card.featured:hover {
+                transform: translateY(-10px) scale(1.03);
+            }
+            
+            /* Contact mejorado */
+            .contact-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            nav {
-                gap: 15px;
-                flex-wrap: wrap;
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                top: 15px;
             }
             
-            /* Reduce animation intensity on mobile */
-            .stat-card:hover,
-            .service-card:hover,
-            .testimonial-card:hover,
-            .portfolio-item:hover,
-            .pricing-card:hover {
-                transform: translateY(-5px) scale(1.02);
+            .language-switcher {
+                top: 15px;
+                right: 15px;
             }
             
-            .stat-card:hover::before,
-            .service-card:hover::before,
-            .testimonial-card:hover::before,
-            .pricing-card:hover::before {
-                left: 100%;
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-main {
+                font-size: 20px;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .section-title h2 {
+                font-size: 2em;
+            }
+            
+            .nav-links {
+                width: 85%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Logo con tu imagen y texto -->
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="es">
+            <i class="bi bi-translate"></i> ESP
+        </button>
+        <button class="lang-btn" data-lang="en">
+            <i class="bi bi-translate"></i> ENG
+        </button>
+    </div>
+
+    <!-- Logo -->
     <div class="logo-container">
         <div class="logo-text">
             <div class="logo-main">AV VISUALS</div>
@@ -1244,110 +1440,118 @@
     </div>
 
     <header>
-        <!-- Netflix-style background effect -->
         <div class="video-background-effect"></div>
-        
         <div class="gradient-overlay"></div>
         <div class="hero-content">
-            <h1>Transformando números en éxito visual</h1>
-            <p class="subtitle">Potenciando marcas e influencers con edición profesional y estrategia visual inteligente</p>
+            <h1 data-key="hero_title">Transformando números en éxito visual</h1>
+            <p class="subtitle" data-key="hero_subtitle">Potenciando marcas e influencers con edición profesional y estrategia visual inteligente</p>
             <div class="hero-btns">
-                <a href="#servicios" class="hero-btn">Ver Servicios</a>
-                <a href="#contacto" class="hero-btn">Contactar Ahora</a>
+                <a href="#servicios" class="hero-btn" data-key="hero_btn1">Ver Servicios</a>
+                <a href="#contacto" class="hero-btn" data-key="hero_btn2">Contactar Ahora</a>
             </div>
         </div>
     </header>
 
+    <!-- Navegación mejorada -->
     <nav>
-        <a href="#historia">Mi Historia</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#portafolio">Portafolio</a>
-        <a href="#precios">Precios</a>
-        <a href="#contacto">Contacto</a>
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#historia" data-key="nav_history">Mi Historia</a>
+                <a href="#servicios" data-key="nav_services">Servicios</a>
+                <a href="#testimonios" data-key="nav_testimonials">Testimonios</a>
+                <a href="#portafolio" data-key="nav_portfolio">Portafolio</a>
+                <a href="#precios" data-key="nav_pricing">Precios</a>
+                <a href="#contacto" data-key="nav_contact">Contacto</a>
+            </div>
+        </div>
     </nav>
 
     <section id="historia" class="stats-section">
         <div class="section-title">
-            <h2>Mi Historia en Números</h2>
-            <p>Transformando números en éxito visual para marcas e influencers</p>
+            <h2 data-key="history_title">Mi Historia en Números</h2>
+            <p data-key="history_subtitle">Transformando números en éxito visual para marcas e influencers</p>
         </div>
         <div class="stats-grid">
             <div class="stat-card">
                 <span class="stat-number">100+</span>
-                <span class="stat-label">VIDEOS EDITADOS</span>
+                <span class="stat-label" data-key="stat1">VIDEOS EDITADOS</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">500K+</span>
-                <span class="stat-label">VISTAS GENERADAS</span>
+                <span class="stat-label" data-key="stat2">VISTAS GENERADAS</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">5</span>
-                <span class="stat-label">INFLUENCERS DE ALTO PERFIL</span>
+                <span class="stat-label" data-key="stat3">INFLUENCERS DE ALTO PERFIL</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">1000</span>
-                <span class="stat-label">HORAS DE EDICIÓN</span>
+                <span class="stat-label" data-key="stat4">HORAS DE EDICIÓN</span>
             </div>
         </div>
     </section>
 
     <section id="servicios">
         <div class="section-title">
-            <h2>Servicios</h2>
-            <p>Soluciones visuales personalizadas para cada necesidad</p>
+            <h2 data-key="services_title">Servicios</h2>
+            <p data-key="services_subtitle">Soluciones visuales personalizadas para cada necesidad</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">
                     <i class="bi bi-camera-reels"></i>
                 </div>
-                <h3>Edición Profesional de Videos</h3>
-                <p>Transformo conceptos en videos impactantes con edición profesional, efectos visuales y corrección de color para maximizar el engagement.</p>
-                <a href="#contacto" class="service-btn">Agenda una llamada</a>
+                <h3 data-key="service1_title">Edición Profesional de Videos</h3>
+                <p data-key="service1_desc">Transformo conceptos en videos impactantes con edición profesional, efectos visuales y corrección de color para maximizar el engagement.</p>
+                <a href="#contacto" class="service-btn" data-key="service_btn">Agenda una llamada</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">
                     <i class="bi bi-instagram"></i>
                 </div>
-                <h3>Contenido para Influencers</h3>
-                <p>Diseño y edito contenido estratégico para influencers que genera engagement y crecimiento orgánico en redes sociales.</p>
-                <a href="#contacto" class="service-btn">Agenda una llamada</a>
+                <h3 data-key="service2_title">Contenido para Influencers</h3>
+                <p data-key="service2_desc">Diseño y edito contenido estratégico para influencers que genera engagement y crecimiento orgánico en redes sociales.</p>
+                <a href="#contacto" class="service-btn" data-key="service_btn">Agenda una llamada</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">
                     <i class="bi bi-briefcase"></i>
                 </div>
-                <h3>Visual Branding para Empresas</h3>
-                <p>Desarrollo identidad visual corporativa consistente y profesional que comunica los valores de tu marca de manera efectiva.</p>
-                <a href="#contacto" class="service-btn">Agenda una llamada</a>
+                <h3 data-key="service3_title">Visual Branding para Empresas</h3>
+                <p data-key="service3_desc">Desarrollo identidad visual corporativa consistente y profesional que comunica los valores de tu marca de manera efectiva.</p>
+                <a href="#contacto" class="service-btn" data-key="service_btn">Agenda una llamada</a>
             </div>
         </div>
     </section>
 
     <section id="testimonios" class="testimonials-section">
         <div class="section-title">
-            <h2>Testimonios</h2>
-            <p>Lo que dicen mis clientes sobre mi trabajo</p>
+            <h2 data-key="testimonials_title">Testimonios</h2>
+            <p data-key="testimonials_subtitle">Lo que dicen mis clientes sobre mi trabajo</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">AV Visuals transformó completamente nuestra presencia en redes. La calidad visual y el impacto en nuestro engagement fueron evidentes desde el primer día.</p>
+                <p class="testimonial-text" data-key="testimonial1_text">AV Visuals transformó completamente nuestra presencia en redes. La calidad visual y el impacto en nuestro engagement fueron evidentes desde el primer día.</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">DG</div>
                     <div class="author-info">
                         <h4>David Gutiérrez</h4>
-                        <p>CEO de Marca X</p>
+                        <p data-key="testimonial1_role">CEO de Marca X</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-text">Trabajar con AV Visuals elevó mi contenido a otro nivel. Son creativos, meticulosos con los detalles y siempre entregan a tiempo superando expectativas.</p>
+                <p class="testimonial-text" data-key="testimonial2_text">Trabajar con AV Visuals elevó mi contenido a otro nivel. Son creativos, meticulosos con los detalles y siempre entregan a tiempo superando expectativas.</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">KM</div>
                     <div class="author-info">
                         <h4>Karen Martínez</h4>
-                        <p>Influencer & Content Creator</p>
+                        <p data-key="testimonial2_role">Influencer & Content Creator</p>
                     </div>
                 </div>
             </div>
@@ -1356,29 +1560,29 @@
 
     <section id="portafolio">
         <div class="section-title">
-            <h2>Portafolio</h2>
-            <p>Algunos de mis trabajos más destacados</p>
+            <h2 data-key="portfolio_title">Portafolio</h2>
+            <p data-key="portfolio_subtitle">Algunos de mis trabajos más destacados</p>
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
                 <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Proyecto 1">
                 <div class="portfolio-overlay">
-                    <h3>Campaign for Fashion Brand</h3>
-                    <p>Video Editing & Color Grading</p>
+                    <h3 data-key="project1_title">Campaign for Fashion Brand</h3>
+                    <p data-key="project1_desc">Video Editing & Color Grading</p>
                 </div>
             </div>
             <div class="portfolio-item">
                 <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Proyecto 2">
                 <div class="portfolio-overlay">
-                    <h3>Social Media Content Series</h3>
-                    <p>Content Strategy & Video Editing</p>
+                    <h3 data-key="project2_title">Social Media Content Series</h3>
+                    <p data-key="project2_desc">Content Strategy & Video Editing</p>
                 </div>
             </div>
             <div class="portfolio-item">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Proyecto 3">
                 <div class="portfolio-overlay">
-                    <h3>Corporate Branding Video</h3>
-                    <p>Motion Graphics & Visual Effects</p>
+                    <h3 data-key="project3_title">Corporate Branding Video</h3>
+                    <p data-key="project3_desc">Motion Graphics & Visual Effects</p>
                 </div>
             </div>
         </div>
@@ -1386,68 +1590,68 @@
 
     <section id="precios">
         <div class="section-title">
-            <h2>Planes y Precios</h2>
-            <p>Soluciones adaptadas a tu presupuesto y necesidades</p>
+            <h2 data-key="pricing_title">Planes y Precios</h2>
+            <p data-key="pricing_subtitle">Soluciones adaptadas a tu presupuesto y necesidades</p>
         </div>
         <div class="pricing-grid">
             <div class="pricing-card">
                 <div class="pricing-header">
-                    <div class="pricing-name">Básico</div>
+                    <div class="pricing-name" data-key="plan1_name">Básico</div>
                     <div class="pricing-price">$20<span>/video</span></div>
                 </div>
                 <ul class="pricing-features">
-                    <li><i class="bi bi-check"></i> Edición básica de video</li>
-                    <li><i class="bi bi-check"></i> Corrección de color</li>
-                    <li><i class="bi bi-check"></i> Formato para redes sociales</li>
-                    <li><i class="bi bi-check"></i> 1 revisión incluida</li>
-                    <li><i class="bi bi-check"></i> Entrega en 48 horas</li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan1_feature1">Edición básica de video</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan1_feature2">Corrección de color</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan1_feature3">Formato para redes sociales</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan1_feature4">1 revisión incluida</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan1_feature5">Entrega en 48 horas</span></li>
                 </ul>
-                <a href="#contacto" class="pricing-btn">Seleccionar Plan</a>
+                <a href="#contacto" class="pricing-btn" data-key="plan_btn">Seleccionar Plan</a>
             </div>
             <div class="pricing-card featured">
                 <div class="pricing-header">
-                    <div class="pricing-name">Profesional</div>
+                    <div class="pricing-name" data-key="plan2_name">Profesional</div>
                     <div class="pricing-price">$35<span>/video</span></div>
                 </div>
                 <ul class="pricing-features">
-                    <li><i class="bi bi-check"></i> Edición avanzada profesional</li>
-                    <li><i class="bi bi-check"></i> Motion graphics básicos</li>
-                    <li><i class="bi bi-check"></i> Corrección de color avanzada</li>
-                    <li><i class="bi bi-check"></i> 3 revisiones incluidas</li>
-                    <li><i class="bi bi-check"></i> Formato multi-plataforma</li>
-                    <li><i class="bi bi-check"></i> Entrega en 72 horas</li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan2_feature1">Edición avanzada profesional</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan2_feature2">Motion graphics básicos</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan2_feature3">Corrección de color avanzada</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan2_feature4">3 revisiones incluidas</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan2_feature5">Formato multi-plataforma</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan2_feature6">Entrega en 72 horas</span></li>
                 </ul>
-                <a href="#contacto" class="pricing-btn">Seleccionar Plan</a>
+                <a href="#contacto" class="pricing-btn" data-key="plan_btn">Seleccionar Plan</a>
             </div>
             <div class="pricing-card">
                 <div class="pricing-header">
-                    <div class="pricing-name">Premium</div>
+                    <div class="pricing-name" data-key="plan3_name">Premium</div>
                     <div class="pricing-price">$55<span>/video</span></div>
                 </div>
                 <ul class="pricing-features">
-                    <li><i class="bi bi-check"></i> Edición premium completa</li>
-                    <li><i class="bi bi-check"></i> Motion graphics avanzados</li>
-                    <li><i class="bi bi-check"></i> Efectos visuales especiales</li>
-                    <li><i class="bi bi-check"></i> Revisiones ilimitadas</li>
-                    <li><i class="bi bi-check"></i> Asesoría estratégica</li>
-                    <li><i class="bi bi-check"></i> Entrega en 5 días</li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan3_feature1">Edición premium completa</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan3_feature2">Motion graphics avanzados</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan3_feature3">Efectos visuales especiales</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan3_feature4">Revisiones ilimitadas</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan3_feature5">Asesoría estratégica</span></li>
+                    <li><i class="bi bi-check"></i> <span data-key="plan3_feature6">Entrega en 5 días</span></li>
                 </ul>
-                <a href="#contacto" class="pricing-btn">Seleccionar Plan</a>
+                <a href="#contacto" class="pricing-btn" data-key="plan_btn">Seleccionar Plan</a>
             </div>
         </div>
     </section>
 
     <section id="contacto" class="contact-section">
         <div class="section-title">
-            <h2>¿Listo para Transformar tu Contenido?</h2>
-            <p>Hablemos sobre tu proyecto y cómo podemos trabajar juntos</p>
+            <h2 data-key="contact_title">¿Listo para Transformar tu Contenido?</h2>
+            <p data-key="contact_subtitle">Hablemos sobre tu proyecto y cómo podemos trabajar juntos</p>
         </div>
         <div class="contact-buttons">
             <a href="https://wa.me/+50374726705" class="contact-btn whatsapp-btn">
-                <i class="bi bi-whatsapp"></i> WhatsApp
+                <i class="bi bi-whatsapp"></i> <span data-key="contact_whatsapp">WhatsApp</span>
             </a>
             <a href="mailto:alexiseditor@gmail.com" class="contact-btn email-btn">
-                <i class="bi bi-envelope"></i> Enviar Email
+                <i class="bi bi-envelope"></i> <span data-key="contact_email">Enviar Email</span>
             </a>
         </div>
     </section>
@@ -1467,15 +1671,301 @@
                 <i class="bi bi-linkedin"></i>
             </a>
         </div>
-        <p>© 2025 AV Visuals | Editor Profesional | Todos los derechos reservados</p>
-        <p style="margin-top: 20px; color: #666; font-size: 0.9em;">Transformando ideas en experiencias visuales inolvidables</p>
+        <p>© 2025 AV Visuals | <span data-key="footer_pro">Editor Profesional</span> | <span data-key="footer_rights">Todos los derechos reservados</span></p>
+        <p style="margin-top: 20px; color: #666; font-size: 0.9em;" data-key="footer_tagline">Transformando ideas en experiencias visuales inolvidables</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Animación de números para las estadísticas
+        // Sistema de idiomas
+        const translations = {
+            es: {
+                // Hero
+                hero_title: "Transformando números en éxito visual",
+                hero_subtitle: "Potenciando marcas e influencers con edición profesional y estrategia visual inteligente",
+                hero_btn1: "Ver Servicios",
+                hero_btn2: "Contactar Ahora",
+                
+                // Navegación
+                nav_history: "Mi Historia",
+                nav_services: "Servicios",
+                nav_testimonials: "Testimonios",
+                nav_portfolio: "Portafolio",
+                nav_pricing: "Precios",
+                nav_contact: "Contacto",
+                
+                // Historia
+                history_title: "Mi Historia en Números",
+                history_subtitle: "Transformando números en éxito visual para marcas e influencers",
+                stat1: "VIDEOS EDITADOS",
+                stat2: "VISTAS GENERADAS",
+                stat3: "INFLUENCERS DE ALTO PERFIL",
+                stat4: "HORAS DE EDICIÓN",
+                
+                // Servicios
+                services_title: "Servicios",
+                services_subtitle: "Soluciones visuales personalizadas para cada necesidad",
+                service1_title: "Edición Profesional de Videos",
+                service1_desc: "Transformo conceptos en videos impactantes con edición profesional, efectos visuales y corrección de color para maximizar el engagement.",
+                service2_title: "Contenido para Influencers",
+                service2_desc: "Diseño y edito contenido estratégico para influencers que genera engagement y crecimiento orgánico en redes sociales.",
+                service3_title: "Visual Branding para Empresas",
+                service3_desc: "Desarrollo identidad visual corporativa consistente y profesional que comunica los valores de tu marca de manera efectiva.",
+                service_btn: "Agenda una llamada",
+                
+                // Testimonios
+                testimonials_title: "Testimonios",
+                testimonials_subtitle: "Lo que dicen mis clientes sobre mi trabajo",
+                testimonial1_text: "AV Visuals transformó completamente nuestra presencia en redes. La calidad visual y el impacto en nuestro engagement fueron evidentes desde el primer día.",
+                testimonial1_role: "CEO de Marca X",
+                testimonial2_text: "Trabajar con AV Visuals elevó mi contenido a otro nivel. Son creativos, meticulosos con los detalles y siempre entregan a tiempo superando expectativas.",
+                testimonial2_role: "Influencer & Content Creator",
+                
+                // Portafolio
+                portfolio_title: "Portafolio",
+                portfolio_subtitle: "Algunos de mis trabajos más destacados",
+                project1_title: "Campaign for Fashion Brand",
+                project1_desc: "Video Editing & Color Grading",
+                project2_title: "Social Media Content Series",
+                project2_desc: "Content Strategy & Video Editing",
+                project3_title: "Corporate Branding Video",
+                project3_desc: "Motion Graphics & Visual Effects",
+                
+                // Precios
+                pricing_title: "Planes y Precios",
+                pricing_subtitle: "Soluciones adaptadas a tu presupuesto y necesidades",
+                plan1_name: "Básico",
+                plan1_feature1: "Edición básica de video",
+                plan1_feature2: "Corrección de color",
+                plan1_feature3: "Formato para redes sociales",
+                plan1_feature4: "1 revisión incluida",
+                plan1_feature5: "Entrega en 48 horas",
+                plan2_name: "Profesional",
+                plan2_feature1: "Edición avanzada profesional",
+                plan2_feature2: "Motion graphics básicos",
+                plan2_feature3: "Corrección de color avanzada",
+                plan2_feature4: "3 revisiones incluidas",
+                plan2_feature5: "Formato multi-plataforma",
+                plan2_feature6: "Entrega en 72 horas",
+                plan3_name: "Premium",
+                plan3_feature1: "Edición premium completa",
+                plan3_feature2: "Motion graphics avanzados",
+                plan3_feature3: "Efectos visuales especiales",
+                plan3_feature4: "Revisiones ilimitadas",
+                plan3_feature5: "Asesoría estratégica",
+                plan3_feature6: "Entrega en 5 días",
+                plan_btn: "Seleccionar Plan",
+                
+                // Contacto
+                contact_title: "¿Listo para Transformar tu Contenido?",
+                contact_subtitle: "Hablemos sobre tu proyecto y cómo podemos trabajar juntos",
+                contact_whatsapp: "WhatsApp",
+                contact_email: "Enviar Email",
+                
+                // Footer
+                footer_pro: "Editor Profesional",
+                footer_rights: "Todos los derechos reservados",
+                footer_tagline: "Transformando ideas en experiencias visuales inolvidables"
+            },
+            
+            en: {
+                // Hero
+                hero_title: "Transforming Numbers into Visual Success",
+                hero_subtitle: "Empowering brands and influencers with professional editing and intelligent visual strategy",
+                hero_btn1: "View Services",
+                hero_btn2: "Contact Now",
+                
+                // Navigation
+                nav_history: "My Story",
+                nav_services: "Services",
+                nav_testimonials: "Testimonials",
+                nav_portfolio: "Portfolio",
+                nav_pricing: "Pricing",
+                nav_contact: "Contact",
+                
+                // History
+                history_title: "My Story in Numbers",
+                history_subtitle: "Transforming numbers into visual success for brands and influencers",
+                stat1: "VIDEOS EDITED",
+                stat2: "VIEWS GENERATED",
+                stat3: "HIGH-PROFILE INFLUENCERS",
+                stat4: "EDITING HOURS",
+                
+                // Services
+                services_title: "Services",
+                services_subtitle: "Customized visual solutions for every need",
+                service1_title: "Professional Video Editing",
+                service1_desc: "I transform concepts into impactful videos with professional editing, visual effects, and color correction to maximize engagement.",
+                service2_title: "Content for Influencers",
+                service2_desc: "I design and edit strategic content for influencers that generates engagement and organic growth on social media.",
+                service3_title: "Visual Branding for Companies",
+                service3_desc: "I develop consistent and professional corporate visual identity that effectively communicates your brand values.",
+                service_btn: "Schedule a Call",
+                
+                // Testimonials
+                testimonials_title: "Testimonials",
+                testimonials_subtitle: "What my clients say about my work",
+                testimonial1_text: "AV Visuals completely transformed our social media presence. The visual quality and impact on our engagement were evident from day one.",
+                testimonial1_role: "CEO of Brand X",
+                testimonial2_text: "Working with AV Visuals elevated my content to another level. They are creative, meticulous with details, and always deliver on time exceeding expectations.",
+                testimonial2_role: "Influencer & Content Creator",
+                
+                // Portfolio
+                portfolio_title: "Portfolio",
+                portfolio_subtitle: "Some of my most outstanding works",
+                project1_title: "Campaign for Fashion Brand",
+                project1_desc: "Video Editing & Color Grading",
+                project2_title: "Social Media Content Series",
+                project2_desc: "Content Strategy & Video Editing",
+                project3_title: "Corporate Branding Video",
+                project3_desc: "Motion Graphics & Visual Effects",
+                
+                // Pricing
+                pricing_title: "Plans & Pricing",
+                pricing_subtitle: "Solutions adapted to your budget and needs",
+                plan1_name: "Basic",
+                plan1_feature1: "Basic video editing",
+                plan1_feature2: "Color correction",
+                plan1_feature3: "Social media format",
+                plan1_feature4: "1 revision included",
+                plan1_feature5: "Delivery in 48 hours",
+                plan2_name: "Professional",
+                plan2_feature1: "Advanced professional editing",
+                plan2_feature2: "Basic motion graphics",
+                plan2_feature3: "Advanced color correction",
+                plan2_feature4: "3 revisions included",
+                plan2_feature5: "Multi-platform format",
+                plan2_feature6: "Delivery in 72 hours",
+                plan3_name: "Premium",
+                plan3_feature1: "Complete premium editing",
+                plan3_feature2: "Advanced motion graphics",
+                plan3_feature3: "Special visual effects",
+                plan3_feature4: "Unlimited revisions",
+                plan3_feature5: "Strategic advice",
+                plan3_feature6: "Delivery in 5 days",
+                plan_btn: "Select Plan",
+                
+                // Contact
+                contact_title: "Ready to Transform Your Content?",
+                contact_subtitle: "Let's talk about your project and how we can work together",
+                contact_whatsapp: "WhatsApp",
+                contact_email: "Send Email",
+                
+                // Footer
+                footer_pro: "Professional Editor",
+                footer_rights: "All rights reserved",
+                footer_tagline: "Transforming ideas into unforgettable visual experiences"
+            }
+        };
+
+        // Sistema de cambio de idioma
         document.addEventListener('DOMContentLoaded', function() {
-            // Observador de intersección para animaciones tipo Apple/Netflix
+            // Cargar idioma guardado o usar español por defecto
+            let currentLang = localStorage.getItem('language') || 'es';
+            
+            // Función para cambiar idioma
+            function changeLanguage(lang) {
+                // Actualizar botones
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Actualizar textos
+                const elements = document.querySelectorAll('[data-key]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        // Para elementos con innerHTML específico
+                        if (element.tagName === 'SPAN' && element.parentElement.tagName === 'LI') {
+                            element.textContent = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+                
+                // Cambiar atributo lang del html
+                document.documentElement.lang = lang;
+                
+                // Actualizar título de página
+                if (lang === 'es') {
+                    document.title = 'AV Visuals | Editor Profesional';
+                } else {
+                    document.title = 'AV Visuals | Professional Editor';
+                }
+                
+                // Guardar preferencia
+                localStorage.setItem('language', lang);
+                currentLang = lang;
+            }
+            
+            // Aplicar idioma guardado al cargar
+            changeLanguage(currentLang);
+            
+            // Event listeners para botones de idioma
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    if (lang !== currentLang) {
+                        // Animación suave al cambiar idioma
+                        document.querySelectorAll('section, footer').forEach(el => {
+                            el.style.opacity = '0.5';
+                            el.style.transform = 'translateY(10px)';
+                        });
+                        
+                        setTimeout(() => {
+                            changeLanguage(lang);
+                            setTimeout(() => {
+                                document.querySelectorAll('section, footer').forEach(el => {
+                                    el.style.opacity = '1';
+                                    el.style.transform = 'translateY(0)';
+                                });
+                            }, 50);
+                        }, 300);
+                    }
+                });
+            });
+
+            // Menú hamburguesa para móviles
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    
+                    // Prevenir scroll cuando el menú está abierto
+                    if (navLinks.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Cerrar menú al hacer clic en un enlace
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+                
+                // Cerrar menú al hacer clic fuera
+                document.addEventListener('click', function(event) {
+                    if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Observador de intersección para animaciones
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1484,70 +1974,52 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Animar la sección principal
                         entry.target.classList.add('visible');
                         
-                        // Animar títulos de sección
                         const sectionTitle = entry.target.querySelector('.section-title');
                         if (sectionTitle && !sectionTitle.classList.contains('animated')) {
                             sectionTitle.classList.add('animated');
                         }
                         
-                        // Animar tarjetas de estadísticas con delay tipo Netflix
+                        // Animar tarjetas con delay
                         const statCards = entry.target.querySelectorAll('.stat-card');
                         statCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animated');
-                            }, index * 150);
+                            setTimeout(() => card.classList.add('animated'), index * 150);
                         });
                         
-                        // Animar tarjetas de servicios
                         const serviceCards = entry.target.querySelectorAll('.service-card');
                         serviceCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animated');
-                            }, index * 200);
+                            setTimeout(() => card.classList.add('animated'), index * 200);
                         });
                         
-                        // Animar testimonios
                         const testimonialCards = entry.target.querySelectorAll('.testimonial-card');
                         testimonialCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animated');
-                            }, index * 200);
+                            setTimeout(() => card.classList.add('animated'), index * 200);
                         });
                         
-                        // Animar portafolio
                         const portfolioItems = entry.target.querySelectorAll('.portfolio-item');
                         portfolioItems.forEach((item, index) => {
-                            setTimeout(() => {
-                                item.classList.add('animated');
-                            }, index * 150);
+                            setTimeout(() => item.classList.add('animated'), index * 150);
                         });
                         
-                        // Animar precios
                         const pricingCards = entry.target.querySelectorAll('.pricing-card');
                         pricingCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animated');
-                            }, index * 200);
+                            setTimeout(() => card.classList.add('animated'), index * 200);
                         });
                     }
                 });
             }, observerOptions);
 
-            // Observar todas las secciones
+            // Observar secciones
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
             });
 
-            // Observar el footer
+            // Observar footer
             const footer = document.querySelector('footer');
-            if (footer) {
-                observer.observe(footer);
-            }
+            if (footer) observer.observe(footer);
 
-            // Smooth scrolling para enlaces del menú con efecto tipo Apple
+            // Smooth scrolling
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1563,7 +2035,7 @@
                 });
             });
 
-            // Animación de contadores de estadísticas tipo Netflix
+            // Animación de contadores
             function animateCounter(element, target, duration = 2000) {
                 const start = 0;
                 const increment = target / (duration / 16);
@@ -1574,19 +2046,15 @@
                     if (current >= target) {
                         element.textContent = target + (element.textContent.includes('+') ? '+' : '');
                         clearInterval(timer);
-                        
-                        // Efecto final tipo Apple
                         element.style.transform = 'scale(1.1)';
-                        setTimeout(() => {
-                            element.style.transform = 'scale(1)';
-                        }, 200);
+                        setTimeout(() => element.style.transform = 'scale(1)', 200);
                     } else {
                         element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
                     }
                 }, 16);
             }
 
-            // Iniciar animación de contadores cuando la sección es visible
+            // Iniciar contadores
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1596,9 +2064,7 @@
                             
                             if (!isNaN(number)) {
                                 stat.textContent = '0' + (text.includes('+') ? '+' : '');
-                                setTimeout(() => {
-                                    animateCounter(stat, number);
-                                }, 800); // Delay tipo Netflix
+                                setTimeout(() => animateCounter(stat, number), 800);
                             }
                         });
                         statsObserver.unobserve(entry.target);
@@ -1607,34 +2073,7 @@
             }, { threshold: 0.5 });
 
             const statsSection = document.getElementById('historia');
-            if (statsSection) {
-                statsObserver.observe(statsSection);
-            }
-
-            // Efecto hover tipo Netflix para cards
-            document.querySelectorAll('.stat-card, .service-card, .testimonial-card, .portfolio-item, .pricing-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '100';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    setTimeout(() => {
-                        this.style.zIndex = '1';
-                    }, 300);
-                });
-            });
-
-            // Efecto de brillo tipo Apple en botones
-            document.querySelectorAll('.hero-btn, .service-btn, .pricing-btn, .contact-btn').forEach(btn => {
-                btn.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    this.style.setProperty('--x', `${x}px`);
-                    this.style.setProperty('--y', `${y}px`);
-                });
-            });
+            if (statsSection) statsObserver.observe(statsSection);
         });
     </script>
 </body>
